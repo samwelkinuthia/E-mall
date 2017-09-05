@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @mall.name %>
+</p>
+
+<p>
+  <strong>Parking space:</strong>
+  <%= @mall.parking_space %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @mall.description %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @mall.email %>
+</p>
+
+<p>
+  <strong>Phone no:</strong>
+  <%= @mall.phone_no %>
+</p>
+
+<p>
+  <strong>Rooms:</strong>
+  <%= @mall.rooms %>
+</p>
+
+<p>
+  <strong>Opening time:</strong>
+  <%= @mall.opening_time %>
+</p>
+
+<p>
+  <strong>Closing time:</strong>
+  <%= @mall.closing_time %>
+</p>
+
+<p>
+  <strong>Rooms status:</strong>
+  <%= @mall.rooms_status %>
+</p>
+
+<%= link_to 'Edit', edit_mall_path(@mall) %> |
+<%= link_to 'Back', malls_path %>
