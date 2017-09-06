@@ -30,4 +30,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  unauthorized:
+    manage:
+      all: "Not authorized to access admin."
+      user: "Not allowed. No admin rights."
