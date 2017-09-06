@@ -1,57 +1,56 @@
-<p id="notice"><%= notice %></p>
 
 <h1>Malls</h1>
 <% @malls.each do |mall| %>
-<ul>
+  <ul>
   <li>
 
-    <%= mall.description %>
+  <%= mall.description %>
   </li>
   <li>
-    <%= mall.email %>
+  <%= mall.email %>
   </li>
   <li>
-    <%= mall.phone_no %>
+  <%= mall.phone_no %>
   </li>
 
   <li>
-    <%= mall.name %>
+  <%= mall.name %>
   </li>
   <li>
-    <%if mall.parking_space == true%>
-      <h1>parking available</h1>
-    <%else%>
-     <h1>No parking provided</h1>
-    <%end%>
+  <%if mall.parking_space == true%>
+  <h1>parking available</h1>
+  <%else%>
+  <h1>No parking provided</h1>
+  <%end%>
   </li>
   <li>
-    <%= mall.rooms %>
+  <%= mall.rooms %>
   </li>
   <li>
-    <%= mall.opening_time.strftime('%I:%M %p') %>
+  <%= mall.opening_time.strftime('%I:%M %p') %>
   </li>
   <li>
-    <%= mall.closing_time.strftime('%I:%M %p')  %>
+  <%= mall.closing_time.strftime('%I:%M %p')  %>
   </li>
   <li>
-    <%if mall.rooms_status == false%>
-      <h1>rooms available</h1>
-    <%else%>
-    <h1>no rooms</h1>
-    <%end%>
+  <%if mall.rooms_status == false%>
+  <h1>rooms available</h1>
+  <%else%>
+  <h1>no rooms</h1>
+  <%end%>
   </li>
   <li>
-    <%= link_to 'Show', mall %>
-
-  </li>
-  <li>
-    <%= link_to 'Edit', edit_mall_path(mall) %>
+  <%= link_to 'Show', mall %>
 
   </li>
   <li>
-    <%= link_to 'Destroy', mall, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Edit', edit_mall_path(mall) %>
+
   </li>
-</ul>
+  <li>
+  <%= link_to 'Destroy', mall, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </li>
+  </ul>
 <% end %>
 
 <br>
