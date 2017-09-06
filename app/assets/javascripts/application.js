@@ -12,5 +12,5 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
 //= require toastr
+//= require_tree .
