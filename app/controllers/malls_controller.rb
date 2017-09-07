@@ -15,6 +15,7 @@ class MallsController < ApplicationController
   # GET /malls/1.json
   def show
     @mall = Mall.find(params[:id])
+    @mall_attachments = @mall.mall_attachments.all
     @hash = Gmaps4rails.build_markers(@mall) do |mall, marker|
       marker.lat mall.latitude
       marker.lng mall.longitude
@@ -36,6 +37,9 @@ class MallsController < ApplicationController
 
     respond_to do |format|
       if @mall.save
+        params[:mall_attachments]['avatar'].each do |a|
+          @mall_attachments = @mall.mall_attachments.create!(:avatar => a, :mall_id => @mall.id)
+        end
         format.html { redirect_to @mall, notice: 'Mall was successfully created.' }
         format.json { render :show, status: :created, location: @mall }
       else
@@ -78,6 +82,6 @@ class MallsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def mall_params
-    params.require(:mall).permit(:name, :address, :parking_space, :description, :email, :phone_no, :rooms, :opening_time, :closing_time, :rooms_status)
+    params.require(:mall).permit(:name, :address, :parking_space, :description, :email, :phone_no, :rooms, :opening_time, :closing_time, :rooms_status, mall_attachments_attributes: [:id, :mall_id, :avatar])
   end
 end
