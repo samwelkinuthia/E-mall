@@ -38,7 +38,7 @@ gem 'geocoder'
 gem 'gmaps4rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'carrierwave'
 #registrations and authorization gems
 gem 'devise'
 gem 'remotipart', github: 'mshibuya/remotipart'
