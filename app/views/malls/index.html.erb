@@ -1,64 +1,58 @@
 <script src="//maps.google.com/maps/api/js?key=AIzaSyDoCKNEr65ZO2JvpuIbofP7cn8p3pqFJP4"></script>
 <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
 
-<h1>Malls</h1>
-<% @malls.each do |mall| %>
-<ul>
-  <li>
-    <%= mall.description %>
-  </li>
-  <li>
-    <%= mall.email %>
-  </li>
-  <li>
-    <%= mall.phone_no %>
-  </li>
+<div class="header">
+  <h1 class="animated jello">Mall-E</h1>
+  <p>Navigate malls from the comfort of your home/shed</p>
+</div>
 
-  <li>
-    <%= mall.name %>
-  </li>
-  <li>
-    <%if mall.parking_space == true%>
-    <h1>parking available</h1>
-    <%else%>
-    <h1>No parking provided</h1>
-    <%end%>
-  </li>
-  <li>
-    <%= mall.rooms %>
-  </li>
-  <li>
-    <%= mall.opening_time.strftime('%I:%M %p') %>
-  </li>
-  <li>
-    <%= mall.closing_time.strftime('%I:%M %p')  %>
-  </li>
-  <li>
+<div class="malls">
+  <div class="malls_title">
+    <h1>Malls</h1>
+  </div>
+</div>
+
+<% @malls.each do |mall| %>
+<div class="row malls_loop">
+  <div class="col-md-6 col-xs-12 left animated fadeInLeft">
+    <h1><%=mall.name%></h1>
     <%if mall.rooms_status == false%>
     <h1>rooms available</h1>
+    <button type="button" id="status_btn" class="btn btn-success ribbon">Rooms Available</button>
     <%else%>
-    <h1>no rooms</h1>
+    <button type="button" id="status_btn" class="btn btn-danger ribbon">No rooms available</button>
     <%end%>
-  </li>
-  <li>
-    <%= link_to 'Show', mall %>
+    <br><br>
+    <p>Open between
+      <%=mall.opening_time.strftime('%I:%M %p')%>
+      and
+      <%=mall.closing_time.strftime('%I:%M %p')%></p>
+  </div>
 
-  </li>
-  <li>
-    <%= link_to 'Edit', edit_mall_path(mall) %>
-  </li>
-  <li>
-    <%= link_to 'Destroy', mall, method: :delete, data: { confirm: 'Are you sure?' } %>
-  </li>
-</ul>
+  <div class="col-md-6 col-xs-12 right animated fadeInRight">
+    <p>
+      <%= mall.description %>
+    </p>
+    <%if mall.parking_space == true%>
+    <p>parking available</p>
+    <%else%>
+    <p>No parking provided</p>
+    <%end%>
+
+    <%= link_to 'View', mall, class: "view_btn" %>
+  </div>
+</div>
 <% end %>
+
+<%#= link_to 'Edit', edit_mall_path(mall) %>
+
+<%#= link_to 'Destroy', mall, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%#= link_to 'New Mall', new_mall_path %>
 
 <br>
 
-<%= link_to 'New Mall', new_mall_path %>
-
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
+<div class="map_box">
+  <div id="map" class="img-responsive animated swing"></div>
 </div>
 <script type="text/javascript">
   handler = Gmaps.build('Google');
