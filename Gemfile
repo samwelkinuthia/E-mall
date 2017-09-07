@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 
 #locations
 gem 'geocoder'
+gem 'gmaps4rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

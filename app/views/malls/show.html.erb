@@ -43,7 +43,26 @@
 <p>
   <strong>Rooms status:</strong>
   <%= @mall.rooms_status %>
+  <%=@mall.latitude%>
 </p>
 
-<%= link_to 'Edit', edit_mall_path(@mall) %> |
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+
+<script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({
+    provider: {},
+    internal: {
+      id: 'map'
+    }
+  }, function () {
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+</script>
+<%= link_to 'Edit', edit_mall_path(@mall) %>
+|
 <%= link_to 'Back', malls_path %>
