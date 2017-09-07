@@ -1,67 +1,73 @@
-<%= form_with(model: mall, local: true) do |form| %>
-  <% if mall.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(mall.errors.count, "error") %> prohibited this mall from being saved:</h2>
+<%= form_for(@mall, local: true, :html => {:multipart => true}) do |form| %>
+<% if mall.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(mall.errors.count, "error") %>
+    prohibited this mall from being saved:</h2>
 
-      <ul>
-      <% mall.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% mall.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :mall_name %>
-  </div>
+<div class="field">
+  <%= form.label :name %>
+  <%= form.text_field :name, id: :mall_name %>
+</div>
 
-  <div class="field">
-    <%= form.label :parking_space %>
-    <%= form.check_box :parking_space, id: :mall_parking_space %>
-  </div>
+<div class="field">
+  <%= form.label :parking_space %>
+  <%= form.check_box :parking_space, id: :mall_parking_space %>
+</div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :mall_description %>
-  </div>
+<div class="field">
+  <%= form.label :description %>
+  <%= form.text_area :description, id: :mall_description %>
+</div>
 
-   <div class="field">
-    <%= form.label :address %>
-    <%= form.text_area :address, id: :mall_address %>
-  </div>
+<div class="field">
+  <%= form.label :address %>
+  <%= form.text_area :address, id: :mall_address %>
+</div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_area :email, id: :mall_email %>
-  </div>
+<div class="field">
+  <%=form.label :avatar%>
+  <%=form.file_field :avatar, multiple: :true, name: "mall_attachments[avatar][]"%>
+</div>
 
-  <div class="field">
-    <%= form.label :phone_no %>
-    <%= form.number_field :phone_no, id: :mall_phone_no %>
-  </div>
+<div class="field">
+  <%= form.label :email %>
+  <%= form.text_area :email, id: :mall_email %>
+</div>
 
-  <div class="field">
-    <%= form.label :rooms %>
-    <%= form.number_field :rooms, id: :mall_rooms %>
-  </div>
+<div class="field">
+  <%= form.label :phone_no %>
+  <%= form.number_field :phone_no, id: :mall_phone_no %>
+</div>
 
-  <div class="field">
-    <%= form.label :opening_time %>
-    <%= form.time_select :opening_time, id: :mall_opening_time %>
-  </div>
+<div class="field">
+  <%= form.label :rooms %>
+  <%= form.number_field :rooms, id: :mall_rooms %>
+</div>
 
-  <div class="field">
-    <%= form.label :closing_time %>
-    <%= form.time_select :closing_time, id: :mall_closing_time %>
-  </div>
+<div class="field">
+  <%= form.label :opening_time %>
+  <%= form.time_select :opening_time, id: :mall_opening_time %>
+</div>
 
-  <div class="field">
-    <%= form.label :rooms_status %>
-    <%= form.check_box :rooms_status, id: :mall_rooms_status %>
-  </div>
+<div class="field">
+  <%= form.label :closing_time %>
+  <%= form.time_select :closing_time, id: :mall_closing_time %>
+</div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="field">
+  <%= form.label :rooms_status %>
+  <%= form.check_box :rooms_status, id: :mall_rooms_status %>
+</div>
+
+<div class="actions">
+  <%= form.submit %>
+</div>
 <% end %>
