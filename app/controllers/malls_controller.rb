@@ -5,11 +5,20 @@ class MallsController < ApplicationController
   # GET /malls.json
   def index
     @malls = Mall.all
+    @hash = Gmaps4rails.build_markers(@malls) do |mall, marker|
+      marker.lat mall.latitude
+      marker.lng mall.longitude
+    end
   end
 
   # GET /malls/1
   # GET /malls/1.json
   def show
+    @mall = Mall.find(params[:id])
+    @hash = Gmaps4rails.build_markers(@mall) do |mall, marker|
+      marker.lat mall.latitude
+      marker.lng mall.longitude
+    end
   end
 
   # GET /malls/new
