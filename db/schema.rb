@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 20170906131218) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "address"
-    t.float "latitude"
     t.float "longitude"
+    t.float "latitude"
   end
 
   create_table "users", force: :cascade do |t|
