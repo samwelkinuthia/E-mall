@@ -26,6 +26,11 @@
     <%= form.text_area :description, id: :mall_description %>
   </div>
 
+   <div class="field">
+    <%= form.label :address %>
+    <%= form.text_area :address, id: :mall_address %>
+  </div>
+
   <div class="field">
     <%= form.label :email %>
     <%= form.text_area :email, id: :mall_email %>
@@ -49,11 +54,6 @@
   <div class="field">
     <%= form.label :closing_time %>
     <%= form.time_select :closing_time, id: :mall_closing_time %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address%>
-    <%= form.text_field :address, id: :mall_address %>
   </div>
 
   <div class="field">
