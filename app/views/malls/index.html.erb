@@ -14,14 +14,9 @@
 <% @malls.each do |mall| %>
 <div class="row malls_loop">
   <div class="col-md-6 col-xs-12 left animated fadeInLeft">
-    <h1><%=mall.name%></h1>
-    <%if mall.rooms_status == false%>
-    <h1>rooms available</h1>
-    <button type="button" id="status_btn" class="btn btn-success ribbon">Rooms Available</button>
-    <%else%>
-    <button type="button" id="status_btn" class="btn btn-danger ribbon">No rooms available</button>
-    <%end%>
-    <br><br>
+    <%= image_tag mall.mallpicture_url.to_s, class: "img-responsive"%>
+    <br>
+
     <p>Open between
       <%=mall.opening_time.strftime('%I:%M %p')%>
       and
@@ -29,6 +24,7 @@
   </div>
 
   <div class="col-md-6 col-xs-12 right animated fadeInRight">
+        <h1><%=mall.name%></h1>
     <p>
       <%= mall.description %>
     </p>
@@ -39,13 +35,13 @@
     <%end%>
 
     <%= link_to 'View', mall, class: "view_btn" %>
+    <%= link_to 'Destroy', mall, method: :delete, data: { confirm: 'Are you sure?' } %>
+
   </div>
 </div>
 <% end %>
 
 <%#= link_to 'Edit', edit_mall_path(mall) %>
-
-<%#= link_to 'Destroy', mall, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%#= link_to 'New Mall', new_mall_path %>
 
 <br>

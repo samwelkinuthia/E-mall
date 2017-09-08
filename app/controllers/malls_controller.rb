@@ -82,6 +82,6 @@ class MallsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def mall_params
-    params.require(:mall).permit(:name, :address, :parking_space, :description, :email, :phone_no, :rooms, :opening_time, :closing_time, :rooms_status, mall_attachments_attributes: [:id, :mall_id, :avatar])
+    params.require(:mall).permit(:name, :mallpicture, :address, :parking_space, :description, :email, :phone_no, :rooms, :opening_time, :closing_time, :rooms_status, mall_attachments_attributes: [:id, :mall_id, :avatar])
   end
 end
