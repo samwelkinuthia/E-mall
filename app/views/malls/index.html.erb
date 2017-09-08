@@ -16,15 +16,21 @@
   <div class="col-md-6 col-xs-12 left animated fadeInLeft">
     <%= image_tag mall.mallpicture_url.to_s, class: "img-responsive"%>
     <br>
-
-    <p>Open between
-      <%=mall.opening_time.strftime('%I:%M %p')%>
-      and
-      <%=mall.closing_time.strftime('%I:%M %p')%></p>
+    <%if ((mall.opening_time).strftime('%H:%M')..(mall.closing_time).strftime('%H:%M')).include?Time.now.strftime('%H:%M')%>
+    <div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Green_pog.svg/1024px-Green_pog.svg.png" class="img-responsive" style="height:30px; width:30px; margin:auto; text-align:center;">
+      <h1>Open</h1>
+    </div>
+    <%else%>
+    <div>
+      <img src="http://designingflicks.com/images/red-svg-9.png" class="img-responsive" style="height:30px; width:30px; margin:auto; text-align:center;">
+      <h1>Closed</h1>
+    </div>
+    <%end%>
   </div>
 
   <div class="col-md-6 col-xs-12 right animated fadeInRight">
-        <h1><%=mall.name%></h1>
+    <h1><%=mall.name%></h1>
     <p>
       <%= mall.description %>
     </p>
@@ -45,7 +51,6 @@
 <%#= link_to 'New Mall', new_mall_path %>
 
 <br>
-
 
 <!-- <div class="map_box">
   <div id="map" class="img-responsive"></div>
