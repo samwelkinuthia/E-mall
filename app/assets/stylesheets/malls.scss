@@ -1,0 +1,55 @@
+.header {
+  text-align: center;
+  padding: 100px;
+
+  h1 {
+    font-size: 70px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
+
+.malls{
+  .malls_title{
+    text-align: center;
+  }
+}
+
+.malls_loop {
+  padding:30px;
+  border:2px solid #f2f2f2;
+  .left {
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+  }
+
+  .right {
+    text-align: left;
+    padding: 20px;
+    font-size: 20px;
+    .view_btn{
+      border:2px solid black;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      text-decoration: none;
+      color:#ff571a;
+    }
+  }
+}
+.map_box{
+  text-align: center;
+  #map{
+    height:500px;
+    width:100%;
+    background: fixed center fixed;
+  }
+}
+
+#status_btn{
+  width:50%;
+  font-size: 16px;
+}

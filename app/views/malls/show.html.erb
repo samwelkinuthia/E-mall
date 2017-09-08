@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<script src="//maps.google.com/maps/api/js?key=AIzaSyDoCKNEr65ZO2JvpuIbofP7cn8p3pqFJP4"></script>
+<script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
+
 
 <p>
   <strong>Name:</strong>
@@ -43,7 +45,32 @@
 <p>
   <strong>Rooms status:</strong>
   <%= @mall.rooms_status %>
+  <%=@mall.latitude%>
 </p>
 
-<%= link_to 'Edit', edit_mall_path(@mall) %> |
+
+<%@mall_attachments.each do |m|%>
+<div class="col-md-3">
+  <%=image_tag m.avatar_url, class: "img-responsive"%>
+</div>
+<%end%>
+
+
+<%= link_to 'Edit', edit_mall_path(@mall) %>
+|
 <%= link_to 'Back', malls_path %>
+<br>
+
+<br>
+
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+<script type="text/javascript">
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+markers = handler.addMarkers(<%=raw @hash.to_json %>);
+handler.bounds.extendWith(markers);
+handler.fitMapToBounds();
+});
+</script>

@@ -16,4 +16,7 @@
 //= require rails-ujs
 //= require toastr
 //= require turbolinks
+//= require underscore
+//= require navbar
+//= require gmaps/google
 //= require_tree .

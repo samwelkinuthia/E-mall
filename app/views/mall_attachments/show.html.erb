@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mall:</strong>
+  <%= @mall_attachment.mall_id %>
+</p>
+
+<p>
+  <strong>Avatar:</strong>
+  <%= @mall_attachment.avatar %>
+</p>
+
+<%= link_to 'Edit', edit_mall_attachment_path(@mall_attachment) %> |
+<%= link_to 'Back', mall_attachments_path %>

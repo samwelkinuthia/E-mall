@@ -1,15 +1,25 @@
 class MallsController < ApplicationController
-  before_action :set_mall, only: [:show, :edit, :update, :destroy]
+  before_action :set_mall, only: %i[show edit update destroy]
 
   # GET /malls
   # GET /malls.json
   def index
     @malls = Mall.all
+    @hash = Gmaps4rails.build_markers(@malls) do |mall, marker|
+      marker.lat mall.latitude
+      marker.lng mall.longitude
+    end
   end
 
   # GET /malls/1
   # GET /malls/1.json
   def show
+    @mall = Mall.find(params[:id])
+    @mall_attachments = @mall.mall_attachments.all
+    @hash = Gmaps4rails.build_markers(@mall) do |mall, marker|
+      marker.lat mall.latitude
+      marker.lng mall.longitude
+    end
   end
 
   # GET /malls/new
@@ -18,8 +28,7 @@ class MallsController < ApplicationController
   end
 
   # GET /malls/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /malls
   # POST /malls.json
@@ -28,6 +37,9 @@ class MallsController < ApplicationController
 
     respond_to do |format|
       if @mall.save
+        params[:mall_attachments]['avatar'].each do |a|
+          @mall_attachments = @mall.mall_attachments.create!(:avatar => a, :mall_id => @mall.id)
+        end
         format.html { redirect_to @mall, notice: 'Mall was successfully created.' }
         format.json { render :show, status: :created, location: @mall }
       else
@@ -62,13 +74,14 @@ class MallsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_mall
-      @mall = Mall.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def mall_params
-      params.require(:mall).permit(:name, :parking_space, :description, :email, :phone_no, :rooms, :opening_time, :closing_time, :rooms_status)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_mall
+    @mall = Mall.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def mall_params
+    params.require(:mall).permit(:name, :mallpicture, :address, :parking_space, :description, :email, :phone_no, :rooms, :opening_time, :closing_time, :rooms_status, mall_attachments_attributes: [:id, :mall_id, :avatar])
+  end
 end
