@@ -40,6 +40,10 @@ gem 'toastr-rails'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'cancancan'
+gem 'mail_form'
+gem 'simple_form'
+gem 'font-awesome-sass'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
