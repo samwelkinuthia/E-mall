@@ -1,16 +1,21 @@
 <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Mall3</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><%=link_to "Home", root_path%></li>
-      <li><%= link_to "Malls", malls_path%></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to "SignUp", new_user_registration_path, class:"glyphicon glyphicon-user" %></li>
-      <li><%= link_to "Signin", new_user_session_path, class:"glyphicon glyphicon-user" %></li>
-      <li><%= link_to "SignOut",destroy_user_session_path, method: :delete, class:"glyphicon glyphicon-log-out" %></li>
-    </ul>
-  </div>
+<div class="container-fluid">
+<div class="navbar-header">
+<a class="navbar-brand" href="/">Mall3</a>
+</div>
+<ul class="nav navbar-nav">
+<li class="active"><%=link_to "Home", root_path%></li>
+<li><%= link_to "Malls", malls_path%></li>
+<li><a href="app/views/index.html">About Us</a> </li>
+<li><%= link_to "Contact Us", contacts_path%></li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<%if user_signed_in? %>
+<li><%= link_to "SignOut",destroy_user_session_path, method: :delete, class:"glyphicon glyphicon-log-out" %></li>
+<% else %>
+<li><%= link_to "SignUp", new_user_registration_path, class:"glyphicon glyphicon-user" %></li>
+<li><%= link_to "Signin", new_user_session_path, class:"glyphicon glyphicon-user" %></li>
+<% end %>
+</ul>
+</div>
 </nav>
