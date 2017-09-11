@@ -2,19 +2,15 @@
 <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
 
 
-<p>
-  <strong>Name:</strong>
-  <%= @mall.name %>
-</p>
+<div class="header_show">
+  <h1><%=@mall.name%></h1>
+  <p><%=@mall.description%></p>
+</div>
+
 
 <p>
   <strong>Parking space:</strong>
   <%= @mall.parking_space %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @mall.description %>
 </p>
 
 <p>
