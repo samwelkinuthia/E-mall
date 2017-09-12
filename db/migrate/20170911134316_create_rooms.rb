@@ -14,7 +14,8 @@ class CreateRooms < ActiveRecord::Migration[5.1]
       t.string :facebook
       t.string :instagram
       t.string :twitter
-      t.boolean :occupied
+      t.boolean :occupied, default: false
+      t.belongs_to :mall, foreign_key: true
 
       t.timestamps
     end

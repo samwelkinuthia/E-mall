@@ -19,6 +19,7 @@
       <th>Instagram</th>
       <th>Twitter</th>
       <th>Occupied</th>
+      <th>Mall</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -40,6 +41,7 @@
         <td><%= room.instagram %></td>
         <td><%= room.twitter %></td>
         <td><%= room.occupied %></td>
+        <td><%= room.mall %></td>
         <td><%= link_to 'Show', room %></td>
         <td><%= link_to 'Edit', edit_room_path(room) %></td>
         <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>

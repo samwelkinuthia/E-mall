@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170908074906) do
+ActiveRecord::Schema.define(version: 20170911134316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,27 @@ ActiveRecord::Schema.define(version: 20170908074906) do
     t.string "mallpicture"
   end
 
+  create_table "rooms", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "room_number"
+    t.float "area"
+    t.string "wing"
+    t.integer "floor"
+    t.time "opening_time"
+    t.time "closing_time"
+    t.bigint "phone"
+    t.string "email"
+    t.string "facebook"
+    t.string "instagram"
+    t.string "twitter"
+    t.boolean "occupied", default: false
+    t.bigint "mall_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mall_id"], name: "index_rooms_on_mall_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -59,4 +80,5 @@ ActiveRecord::Schema.define(version: 20170908074906) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "rooms", "malls"
 end
