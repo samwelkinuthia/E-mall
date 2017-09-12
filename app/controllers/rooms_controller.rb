@@ -24,15 +24,15 @@ class RoomsController < ApplicationController
   # POST /rooms
   # POST /rooms.json
   def create
-    @room = Room.new(room_params)
-
+    @mall = Mall.find_by(id: params[:mall_id])
+    @room = @mall.rooms.new(room_params)
     respond_to do |format|
       if @room.save
-        format.html { redirect_to @room, notice: 'Room was successfully created.' }
+        format.html { redirect_to @mall, notice: 'Room was successfully created.' }
         format.json { render :show, status: :created, location: @room }
       else
         format.html { render :new }
-        format.json { render json: @room.errors, status: :unprocessable_entity }
+        format.json { render json: @mall.errors, status: :unprocessable_entity }
       end
     end
   end

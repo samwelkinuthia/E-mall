@@ -19,6 +19,7 @@
 
   <div class="col-md-6 col-xs-12 right animated fadeInRight">
     <h1><%=mall.name%></h1>
+    <h1><%=@free%></h1> spaces available.
     <%if ((mall.opening_time).strftime('%H:%M')..(mall.closing_time).strftime('%H:%M')).include?Time.now.strftime('%H:%M')%>
     <div>
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Green_pog.svg/1024px-Green_pog.svg.png" class="img-responsive" style="height:30px; width:30px;">Open
@@ -37,9 +38,7 @@
     <%end%>
 
     <%if mall.rooms_status == true%>
-    <h3>
-      <%=mall.rooms%> rooms available.
-    </h3>
+      <%=mall.rooms.count%> available
     <%else%>
       <h3>fully occupied</h3>
     <%end%>

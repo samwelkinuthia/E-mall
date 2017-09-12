@@ -1,12 +1,11 @@
 <script src="//maps.google.com/maps/api/js?key=AIzaSyDoCKNEr65ZO2JvpuIbofP7cn8p3pqFJP4"></script>
 <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
 
-
 <div class="header_show">
   <h1><%=@mall.name%></h1>
   <p><%=@mall.description%></p>
+  <h3><%=@free%> rooms available</h3>
 </div>
-
 
 <p>
   <strong>Parking space:</strong>
@@ -25,7 +24,7 @@
 
 <p>
   <strong>Rooms:</strong>
-  <%= @mall.rooms %>
+  <%= @mall.spaces%>
 </p>
 
 <p>
@@ -44,29 +43,112 @@
   <%=@mall.latitude%>
 </p>
 
-
 <%@mall_attachments.each do |m|%>
 <div class="col-md-3">
   <%=image_tag m.avatar_url, class: "img-responsive"%>
 </div>
 <%end%>
 
-
 <%= link_to 'Edit', edit_mall_path(@mall) %>
 |
 <%= link_to 'Back', malls_path %>
 <br>
 
-<br>
-
 <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'></div>
 </div>
+
+<div class="container">
+  <div class="container" style="padding:50px;">
+    <%= form_for :room, url: mall_rooms_path(@mall) do |form| %>
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name, id: :room_name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description, id: :room_description %>
+    </div>
+
+    <div class="field">
+      <%= form.label :room_number %>
+      <%= form.number_field :room_number, id: :room_room_number %>
+    </div>
+
+    <div class="field">
+      <%= form.label :area %>
+      <%= form.text_field :area, id: :room_area %>
+    </div>
+
+    <div class="field">
+      <%= form.label :wing %>
+      <%= form.text_field :wing, id: :room_wing %>
+    </div>
+
+    <div class="field">
+      <%= form.label :floor %>
+      <%= form.number_field :floor, id: :room_floor %>
+    </div>
+
+    <div class="field">
+      <%= form.label :opening_time %>
+      <%= form.time_select :opening_time, id: :room_opening_time %>
+    </div>
+
+    <div class="field">
+      <%= form.label :closing_time %>
+      <%= form.time_select :closing_time, id: :room_closing_time %>
+    </div>
+
+    <div class="field">
+      <%= form.label :phone %>
+      <%= form.text_field :phone, id: :room_phone %>
+    </div>
+
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.text_field :email, id: :room_email %>
+    </div>
+
+    <div class="field">
+      <%= form.label :facebook %>
+      <%= form.text_field :facebook, id: :room_facebook %>
+    </div>
+
+    <div class="field">
+      <%= form.label :instagram %>
+      <%= form.text_field :instagram, id: :room_instagram %>
+    </div>
+
+    <div class="field">
+      <%= form.label :twitter %>
+      <%= form.text_field :twitter, id: :room_twitter %>
+    </div>
+
+    <div class="field">
+      <%= form.label :occupied %>
+      <%= form.check_box :occupied, id: :room_occupied %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+    <% end %>
+
+  </div>
+</div>
+
 <script type="text/javascript">
-handler = Gmaps.build('Google');
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-markers = handler.addMarkers(<%=raw @hash.to_json %>);
-handler.bounds.extendWith(markers);
-handler.fitMapToBounds();
-});
+  handler = Gmaps.build('Google');
+  handler.buildMap({
+    provider: {},
+    internal: {
+      id: 'map'
+    }
+  }, function () {
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
 </script>
