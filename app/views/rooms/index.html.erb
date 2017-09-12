@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Rooms</h1>
+
+<% @rooms.each do |room| %>
+<%= room.name %>
+<%= room.description %>
+<%= room.room_number %>
+<%= room.area %>
+<%= room.wing %>
+<%= room.floor %>
+<%= room.opening_time %>
+<%= room.closing_time %>
+<%= room.phone %>
+<%= room.email %>
+<%= room.facebook %>
+<%= room.instagram %>
+<%= room.twitter %>
+<%= room.occupied %>
+<%= room.mall %>
+<%= link_to 'Show', room %>
+<%= link_to 'Edit', edit_room_path(room) %>
+<%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<% end %>
+
+<br>
+
+<%= link_to 'New Room', new_mall_room_path %>

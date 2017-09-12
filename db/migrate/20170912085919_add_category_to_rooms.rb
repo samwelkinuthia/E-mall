@@ -1,0 +1,5 @@
+class AddCategoryToRooms < ActiveRecord::Migration[5.1]
+  def change
+    add_column :rooms, :category_id, :integer
+  end
+end

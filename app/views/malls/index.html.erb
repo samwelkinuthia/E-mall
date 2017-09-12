@@ -15,27 +15,36 @@
 <div class="row malls_loop">
   <div class="col-md-6 col-xs-12 left animated fadeInLeft">
     <%= image_tag mall.mallpicture_url.to_s, class: "img-responsive"%>
-    <br>
-
-    <p>Open between
-      <%=mall.opening_time.strftime('%I:%M %p')%>
-      and
-      <%=mall.closing_time.strftime('%I:%M %p')%></p>
   </div>
 
   <div class="col-md-6 col-xs-12 right animated fadeInRight">
-        <h1><%=mall.name%></h1>
-    <p>
-      <%= mall.description %>
-    </p>
+    <h1><%=mall.name%></h1>
+    <h1><%=@free%></h1> spaces available.
+    <%if ((mall.opening_time).strftime('%H:%M')..(mall.closing_time).strftime('%H:%M')).include?Time.now.strftime('%H:%M')%>
+    <div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Green_pog.svg/1024px-Green_pog.svg.png" class="img-responsive" style="height:30px; width:30px;">Open
+    </div>
+    <%else%>
+    <div>
+      <img src="http://designingflicks.com/images/red-svg-9.png" class="img-responsive" style="height:30px; width:30px; margin:auto; text-align:center;">
+      <h1>Closed</h1>
+    </div>
+    <%end%>
+
     <%if mall.parking_space == true%>
     <p>parking available</p>
     <%else%>
     <p>No parking provided</p>
     <%end%>
 
+    <%if mall.rooms_status == true%>
+      <%=mall.rooms.count%> available
+    <%else%>
+      <h3>fully occupied</h3>
+    <%end%>
+
     <%= link_to 'View', mall, class: "view_btn" %>
-    <%= link_to 'Destroy', mall, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%#= link_to 'Destroy', mall, method: :delete, data: { confirm: 'Are you sure?' } %>
 
   </div>
 </div>
@@ -46,11 +55,10 @@
 
 <br>
 
-
-<!-- <div class="map_box">
+ <div class="map_box">
   <div id="map" class="img-responsive"></div>
 </div>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   handler = Gmaps.build('Google');
   handler.buildMap({
     provider: {},

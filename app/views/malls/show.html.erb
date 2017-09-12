@@ -1,20 +1,15 @@
 <script src="//maps.google.com/maps/api/js?key=AIzaSyDoCKNEr65ZO2JvpuIbofP7cn8p3pqFJP4"></script>
 <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
 
-
-<p>
-  <strong>Name:</strong>
-  <%= @mall.name %>
-</p>
+<div class="header_show">
+  <h1><%=@mall.name%></h1>
+  <p><%=@mall.description%></p>
+  <h3><%=@free%> rooms available</h3>
+</div>
 
 <p>
   <strong>Parking space:</strong>
   <%= @mall.parking_space %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @mall.description %>
 </p>
 
 <p>
@@ -29,7 +24,7 @@
 
 <p>
   <strong>Rooms:</strong>
-  <%= @mall.rooms %>
+  <%= @mall.spaces%>
 </p>
 
 <p>
@@ -48,29 +43,52 @@
   <%=@mall.latitude%>
 </p>
 
-
 <%@mall_attachments.each do |m|%>
 <div class="col-md-3">
   <%=image_tag m.avatar_url, class: "img-responsive"%>
 </div>
 <%end%>
 
-
 <%= link_to 'Edit', edit_mall_path(@mall) %>
 |
 <%= link_to 'Back', malls_path %>
 <br>
 
-<br>
-
 <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'></div>
 </div>
+
+<div class="container">
+  <div class="container" style="padding:50px;">
+    <%=render 'rooms/form'%>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="col-md-4 col-xs-12">
+    <p>
+      <% @rooms.each do |room| %>
+      <%= room.name %>
+      <%= room.description %>
+      <%= link_to 'Show', mall_room_path(@mall) %>
+      <%= link_to 'Edit', edit_mall_room_path(@mall) %>
+      <%= link_to 'Destroy', mall_room_path(@mall), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </p>
+  </div>
+</div>
+
 <script type="text/javascript">
-handler = Gmaps.build('Google');
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-markers = handler.addMarkers(<%=raw @hash.to_json %>);
-handler.bounds.extendWith(markers);
-handler.fitMapToBounds();
-});
+  handler = Gmaps.build('Google');
+  handler.buildMap({
+    provider: {},
+    internal: {
+      id: 'map'
+    }
+  }, function () {
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
 </script>

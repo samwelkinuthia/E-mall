@@ -4,6 +4,7 @@ class Mall < ApplicationRecord
   mount_uploader :mallpicture, MallpictureUploader
 
 
+  has_many :rooms
   has_many :mall_attachments
   accepts_nested_attributes_for :mall_attachments
   has_many :events
