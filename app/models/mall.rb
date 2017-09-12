@@ -7,5 +7,6 @@ class Mall < ApplicationRecord
   has_many :mall_attachments
   accepts_nested_attributes_for :mall_attachments
   has_many :events
+  has_many :features
 
 end
