@@ -25,6 +25,7 @@ class RoomsController < ApplicationController
   # POST /rooms.json
   def create
     @mall = Mall.find_by(id: params[:mall_id])
+    @category = Category.all
     @room = @mall.rooms.new(room_params)
     respond_to do |format|
       if @room.save
@@ -69,6 +70,6 @@ class RoomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_params
-      params.require(:room).permit(:name, :description, :room_number, :area, :wing, :floor, :opening_time, :closing_time, :phone, :email, :facebook, :instagram, :twitter, :occupied, :mall_id)
+      params.require(:room).permit(:name, :description, :room_number, :area, :wing, :floor, :opening_time, :closing_time, :phone, :email, :facebook, :instagram, :twitter, :occupied, :mall_id, :category_id)
     end
 end

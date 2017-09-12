@@ -60,82 +60,22 @@
 
 <div class="container">
   <div class="container" style="padding:50px;">
-    <%= form_for :room, url: mall_rooms_path(@mall) do |form| %>
-    <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name, id: :room_name %>
-    </div>
+    <%=render 'rooms/form'%>
+  </div>
+</div>
 
-    <div class="field">
-      <%= form.label :description %>
-      <%= form.text_area :description, id: :room_description %>
-    </div>
 
-    <div class="field">
-      <%= form.label :room_number %>
-      <%= form.number_field :room_number, id: :room_room_number %>
-    </div>
-
-    <div class="field">
-      <%= form.label :area %>
-      <%= form.text_field :area, id: :room_area %>
-    </div>
-
-    <div class="field">
-      <%= form.label :wing %>
-      <%= form.text_field :wing, id: :room_wing %>
-    </div>
-
-    <div class="field">
-      <%= form.label :floor %>
-      <%= form.number_field :floor, id: :room_floor %>
-    </div>
-
-    <div class="field">
-      <%= form.label :opening_time %>
-      <%= form.time_select :opening_time, id: :room_opening_time %>
-    </div>
-
-    <div class="field">
-      <%= form.label :closing_time %>
-      <%= form.time_select :closing_time, id: :room_closing_time %>
-    </div>
-
-    <div class="field">
-      <%= form.label :phone %>
-      <%= form.text_field :phone, id: :room_phone %>
-    </div>
-
-    <div class="field">
-      <%= form.label :email %>
-      <%= form.text_field :email, id: :room_email %>
-    </div>
-
-    <div class="field">
-      <%= form.label :facebook %>
-      <%= form.text_field :facebook, id: :room_facebook %>
-    </div>
-
-    <div class="field">
-      <%= form.label :instagram %>
-      <%= form.text_field :instagram, id: :room_instagram %>
-    </div>
-
-    <div class="field">
-      <%= form.label :twitter %>
-      <%= form.text_field :twitter, id: :room_twitter %>
-    </div>
-
-    <div class="field">
-      <%= form.label :occupied %>
-      <%= form.check_box :occupied, id: :room_occupied %>
-    </div>
-
-    <div class="actions">
-      <%= form.submit %>
-    </div>
-    <% end %>
-
+<div class="container">
+  <div class="col-md-4 col-xs-12">
+    <p>
+      <% @rooms.each do |room| %>
+      <%= room.name %>
+      <%= room.description %>
+      <%= link_to 'Show', mall_room_path(@mall) %>
+      <%= link_to 'Edit', edit_mall_room_path(@mall) %>
+      <%= link_to 'Destroy', mall_room_path(@mall), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </p>
   </div>
 </div>
 

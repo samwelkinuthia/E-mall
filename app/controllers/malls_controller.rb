@@ -21,7 +21,7 @@ class MallsController < ApplicationController
       marker.lng mall.longitude
     end
     @rooms = @mall.rooms
-    @free = ((@mall.spaces).to_i - (@mall.rooms.count).to_i)  
+    @free = ((@mall.spaces).to_i - (@mall.rooms.count).to_i)
   end
 
   # GET /malls/new

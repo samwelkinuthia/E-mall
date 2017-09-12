@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170911134316) do
+ActiveRecord::Schema.define(version: 20170912085919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "mall_attachments", force: :cascade do |t|
     t.integer "mall_id"
@@ -58,6 +64,7 @@ ActiveRecord::Schema.define(version: 20170911134316) do
     t.bigint "mall_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id"
     t.index ["mall_id"], name: "index_rooms_on_mall_id"
   end
 
