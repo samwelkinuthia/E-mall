@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :events
   match '/contacts',     to: 'contacts#new',             via: 'get'
   resources "contacts", only: [:new, :create]
   resources :contacts
