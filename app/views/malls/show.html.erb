@@ -73,6 +73,7 @@
   <div class="col-md-4 col-xs-12">
     <p>
       <% @rooms.each do |room| %>
+      <%= image_tag room.storeimage_url.to_s, class: "store_image img-responsive"%>
       <%= room.name %>
       <%= room.description %>
       <%= link_to 'Show', mall_room_path(@mall) %>

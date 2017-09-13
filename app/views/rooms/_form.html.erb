@@ -1,6 +1,16 @@
 <%= form_for :room, url: mall_rooms_path(@mall) do |form| %>
 
 <div class="field">
+  <%=form.label :Main_store_image%>
+  <%=form.file_field :storeimage%>
+</div>
+
+<div class="field">
+  <%=form.label :Other_Image%>
+  <%=form.file_field :storeavatar%>
+</div>
+
+<div class="field">
   <%= form.label :category %>
   <%= form.collection_select :category_id, Category.all, :id, :name%>
 </div>
