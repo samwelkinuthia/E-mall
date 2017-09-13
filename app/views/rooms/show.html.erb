@@ -75,5 +75,7 @@
   <%= @room.mall %>
 </p>
 
+
+<%=link_to 'Products', new_mall_room_product_path(@mall, @room)%>
 <%= link_to 'Edit', edit_mall_room_path(@room) %> |
 <%= link_to 'Back', mall_path %>
