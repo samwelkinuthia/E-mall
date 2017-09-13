@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   resources :malls do
     resources :rooms do
-      resources :products
+      resources :products do
+        collection { post :import}
+      end
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

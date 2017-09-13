@@ -70,12 +70,18 @@
   <%= @room.occupied %>
 </p>
 
-<p>
-  <strong>Mall:</strong>
-  <%= @room.mall %>
-</p>
+<%=render 'products/form'%>
 
+<p>You can also upload your csv file directly</p>
+
+<%=form_tag import_mall_room_products_path(@mall, @room), multipart: true do%>
+  <div class="well">
+    <%= file_field_tag :file%> <br>
+    <%=submit_tag "Upload CSV"%>
+  </div>
+  <%end%>
 
 <%=link_to 'Products', new_mall_room_product_path(@mall, @room)%>
-<%= link_to 'Edit', edit_mall_room_path(@room) %> |
+<%= link_to 'Edit', edit_mall_room_path(@room) %>
+|
 <%= link_to 'Back', mall_path %>

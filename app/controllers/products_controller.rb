@@ -63,6 +63,12 @@ class ProductsController < ApplicationController
     end
   end
 
+  def import
+    @room = Room.find(params[:room_id])
+    Product.import(@room, params[:file])
+    redirect_to mall_room_products_path, notice: "successfully uploaded your products"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product

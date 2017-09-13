@@ -1,4 +1,4 @@
-<%= form_for :product, url: mall_room_products_path do |form| %>
+<%= form_for :product, url: mall_room_products_path(@mall, @room) do |form| %>
 
   <div class="field">
     <%= form.label :name %>
@@ -9,7 +9,6 @@
     <%= form.label :price %>
     <%= form.text_field :price, id: :product_price %>
   </div>
-
 
   <div class="actions">
     <%= form.submit %>
