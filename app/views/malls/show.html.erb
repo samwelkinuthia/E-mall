@@ -4,7 +4,8 @@
 <div class="header_show">
   <h1><%=@mall.name%></h1>
   <p><%=@mall.description%></p>
-  <h3><%=@free%> rooms available</h3>
+  <h3><%=@free%>
+    rooms available</h3>
 </div>
 
 <p>
@@ -43,10 +44,14 @@
   <%=@mall.latitude%>
 </p>
 
-<%@mall_attachments.each do |m|%>
-<div class="col-md-3">
-  <%=image_tag m.avatar_url, class: "img-responsive"%>
-</div>
+<%if @mall_attachments.any?%>
+  <%@mall_attachments.each do |m|%>
+    <div class="col-md-3">
+      <%=image_tag m.avatar_url, class: "img-responsive"%>
+    </div>
+  <%end%>
+<%else%>
+  <h1>add images when adding mall</h1>
 <%end%>
 
 <%= link_to 'Edit', edit_mall_path(@mall) %>
@@ -63,7 +68,6 @@
     <%=render 'rooms/form'%>
   </div>
 </div>
-
 
 <div class="container">
   <div class="col-md-4 col-xs-12">

@@ -36,7 +36,6 @@ class MallsController < ApplicationController
   # POST /malls.json
   def create
     @mall = Mall.new(mall_params)
-
     respond_to do |format|
       if @mall.save
         params[:mall_attachments]['avatar'].each do |a|
