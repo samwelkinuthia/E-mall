@@ -18,9 +18,9 @@
 <%= room.twitter %>
 <%= room.occupied %>
 <%= room.mall %>
-<%= link_to 'Show', room %>
-<%= link_to 'Edit', edit_room_path(room) %>
-<%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Show', mall_room_path(@mall,room) %>
+<%= link_to 'Edit', edit_mall_room_path(@mall,room) %>
+<%= link_to 'Destroy', mall_room_path(@mall,room), method: :delete, data: { confirm: 'Are you sure?' } %>
 
 <% end %>
 
