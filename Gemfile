@@ -47,6 +47,7 @@ gem 'rails_admin', '>= 1.0.0.rc'
 gem 'cancancan'
 gem 'mail_form'
 gem 'simple_form'
+gem 'simple-form-datepicker'
 gem 'font-awesome-sass'
 
 
