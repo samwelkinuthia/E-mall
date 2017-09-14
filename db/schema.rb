@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170914095735) do
+ActiveRecord::Schema.define(version: 20170914115650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 20170914095735) do
     t.datetime "updated_at", null: false
     t.string "eventimage"
     t.index ["mall_id"], name: "index_events_on_mall_id"
+  end
+
+  create_table "features", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "featureimage"
+    t.bigint "mall_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mall_id"], name: "index_features_on_mall_id"
   end
 
   create_table "mall_attachments", force: :cascade do |t|
@@ -114,6 +124,7 @@ ActiveRecord::Schema.define(version: 20170914095735) do
   end
 
   add_foreign_key "events", "malls"
+  add_foreign_key "features", "malls"
   add_foreign_key "products", "rooms"
   add_foreign_key "rooms", "malls"
 end
