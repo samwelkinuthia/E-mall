@@ -1,16 +1,32 @@
 <hr>
-<footer id="footer">
-<div class="container">
-<div>
 
-<form class="form-inline">
+<footer id="footer">
+
+<div>
+<div class="row">
+<div class="col-md-6" id="column1">
+<h4><a href="/">E~mall</a></h4>
+<h4><%=link_to "Log-In", new_user_session_path%></h4>
+<h4><%=link_to "Sign-Up", new_user_registration_path%></h4>
+<h4><a href="/pages/about">About Us</a></h4>
+<h4><%= link_to "Contact Us", contacts_path%></h4>
+</div>
+<div class="col-md-6"></div>
+<div class="col-md-6">
+<h3>Contact Us</h3>
+<i class="fa fa-envelope" aria-hidden="true"></i>  <a href="mailto:naajib38@gmail.com?Subject=Hello%20again" target="_top">info@e-mall.com</a>
+<p><i class="fa fa-phone" aria-hidden="true"></i>  0727522338</p>
+<p><i class="fa fa-address-card-o" aria-hidden="true"></i>  P.O.Box 28860-00100</p>
+<p><i class="fa fa-map-marker" aria-hidden="true"></i>  Ngong Lane Plaza, Ngong Lane. <br>Nairobi</p>
+</div>
+<!-- form class="form-inline">
 <div class="form-group">
 <label for="exampleInputEmail">To subscribe,Enter your E-mail and hit the subscribe button.</label>
 <input type="email" class="form-control" id="exampleInputEmail" placeholder="naajib38@example.com">
 </div>
 <button type="submit" class="btn btn-success">Subscribe </button>
 </form>
-</div>
+</div> -->
 <!-- social media icons -->
 <div class="container center-items">
 <div class="social center-items">
@@ -28,7 +44,13 @@
 <i class="fa fa-instagram"></i>
 </a>
 </div>
+<div class="social center-items">
+<a href="https://github.com/samwelkinuthia/E-mall/tree/samwel">
+<i class="fa fa-github"></i>
+</a>
+</div>
 </div>
 
-<p id="finale">&copy; 2017 Ne0ncode blog</p>
+
+<p id="finale">&copy; 2017 E~Mall - All Rights Reserved.</p>
 </footer>
