@@ -239,6 +239,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.2)
   devise
+  font-awesome-rails (~> 4.7, >= 4.7.0.2)
   geocoder
   gmaps4rails
   jbuilder (~> 2.5)
