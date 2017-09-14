@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :malls do
+    resources :events
+  end
   resources :categories
   root "malls#index"
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

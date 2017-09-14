@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170913143211) do
+ActiveRecord::Schema.define(version: 20170914095735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,20 @@ ActiveRecord::Schema.define(version: 20170913143211) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.date "starting_date"
+    t.date "ending_date"
+    t.time "starting_time"
+    t.time "ending_time"
+    t.bigint "mall_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "eventimage"
+    t.index ["mall_id"], name: "index_events_on_mall_id"
   end
 
   create_table "mall_attachments", force: :cascade do |t|
@@ -52,6 +66,7 @@ ActiveRecord::Schema.define(version: 20170913143211) do
     t.bigint "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
     t.index ["room_id"], name: "index_products_on_room_id"
   end
 
@@ -98,6 +113,7 @@ ActiveRecord::Schema.define(version: 20170913143211) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "events", "malls"
   add_foreign_key "products", "rooms"
   add_foreign_key "rooms", "malls"
 end
