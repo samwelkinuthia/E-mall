@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :malls do
     resources :events
+    resources :features
   end
   resources :categories
   root "malls#index"

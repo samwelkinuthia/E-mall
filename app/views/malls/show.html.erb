@@ -70,7 +70,12 @@
     </div>
   </div>
   <div class="col-md-6">
-    <%=render 'events/form'%>
+    <div class="row">
+      <%=render 'events/form'%>
+    </div>
+    <div class="row">
+      <%= render 'features/form'%>
+    </div>
   </div>
 </div>
 
@@ -85,9 +90,9 @@
       <%= image_tag room.storeimage_url.to_s, class: "store_image img-responsive"%>
       <%= room.name %>
       <%= room.description %>
-      <%= link_to 'Show', mall_room_path(@mall) %>
-      <%= link_to 'Edit', edit_mall_room_path(@mall) %>
-      <%= link_to 'Destroy', mall_room_path(@mall), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Show', mall_room_path(room.mall_id,room) %>
+      <%#= link_to 'Edit', edit_mall_room_path(room.mall_id,room) %>
+      <%#= link_to 'Destroy', mall_room_path(room.mall_id,room), method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
     </p>
   </div>
