@@ -33,6 +33,9 @@
     <div>
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Green_pog.svg/1024px-Green_pog.svg.png" class="img-responsive" style="height:30px; width:30px;">Open
     </div>
+    <%=link_to mall_events_path(mall) do%>
+      <%=mall.events.count%> Events happening
+    <%end%>
     <%else%>
     <div>
       <img src="http://designingflicks.com/images/red-svg-9.png" class="img-responsive" style="height:30px; width:30px; margin:auto; text-align:center;">
