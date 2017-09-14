@@ -47,12 +47,12 @@
 
 <div class="field">
   <%= form.label :opening_time %>
-  <%= form.datetime_field :opening_time, id: :room_opening_time %>
+  <%= form.time_select :opening_time, id: :room_opening_time %>
 </div>
 
 <div class="field">
   <%= form.label :closing_time %>
-  <%= form.datetime_field :closing_time, id: :room_closing_time %>
+  <%= form.time_select :closing_time, id: :room_closing_time %>
 </div>
 
 <div class="field">
@@ -78,6 +78,11 @@
 <div class="field">
   <%= form.label :twitter %>
   <%= form.text_field :twitter, id: :room_twitter %>
+</div>
+
+<div class="field">
+  <%=form.label :website%>
+  <%=form.url_field :website%>
 </div>
 
 <div class="field">
