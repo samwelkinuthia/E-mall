@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :categories
+  resources :categories,only:[:show]
   root "malls#index"
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users

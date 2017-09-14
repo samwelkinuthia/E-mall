@@ -1,4 +1,7 @@
 class MallsController < ApplicationController
+  load_and_authorize_resource
+  skip_authorize_resource :only => [:index, :show]
+
   before_action :set_mall, only: %i[show edit update destroy]
 
   # GET /malls
