@@ -1,16 +1,11 @@
-
-
 <p>
-  <strong>Name:</strong>
-  <%= @category.name %>
+  <strong><%=@category.name%></strong>
+
 </p>
 
 <%@rooms.each do |room|%>
-  <%if room.category_id == @category.id %>
-      <%= link_to room.name, mall_room_path(room)%>
-      <p>located at <%= link_to room.mall.name, mall_path%></p>
-  <%end%>
+<% if room.category_id == @category.id %>
+<%=link_to room.name, mall_room_path(room.mall_id,room)%><br>
+<%= link_to room.mall.name, mall_path(room.mall_id)%> <br>
 <%end%>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<%end%>

@@ -12,6 +12,8 @@ class RoomsController < ApplicationController
   # GET /rooms/1.json
   def show
     @mall = Mall.find_by(id: params[:mall_id])
+    @room = Room.find(params[:id])
+    @products = @room.products
   end
 
   # GET /rooms/new

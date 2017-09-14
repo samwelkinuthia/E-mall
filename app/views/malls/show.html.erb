@@ -74,9 +74,9 @@
     <p>
       <% @rooms.each do |room| %>
       <%= image_tag room.storeimage_url.to_s, class: "store_image img-responsive"%>
-      <%= room.name %>
-      <%= room.description %>
-      <%= link_to 'Show', mall_room_path(@mall) %>
+      <%= room.name %><br>
+      <%= room.description %><br>
+      <%= link_to 'Show', mall_room_path(@mall,room) %>
       <%= link_to 'Edit', edit_mall_room_path(@mall) %>
       <%= link_to 'Destroy', mall_room_path(@mall), method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>

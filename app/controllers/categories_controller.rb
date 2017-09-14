@@ -10,7 +10,8 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @rooms= Room.all
+    @rooms = Room.all
+    @category = Category.find(params[:id])
   end
 
   # GET /categories/new

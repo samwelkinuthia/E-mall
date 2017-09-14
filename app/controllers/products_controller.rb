@@ -26,11 +26,12 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
+    @mall = Mall.find(params[:mall_id])
     @room = Room.find_by(id: params[:room_id])
     @product = @room.products.new(product_params)
     respond_to do |format|
       if @product.save
-        format.html { redirect_to mall_room_products_path, notice: 'Product was successfully created.' }
+        format.html { redirect_to mall_room_path(@mall, @room), notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
