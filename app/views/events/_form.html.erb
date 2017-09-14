@@ -1,15 +1,42 @@
-<%= simple_form_for(@event) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :venue %>
-  <%= f.input :hosted_by %>
-  <%= f.input :time %>
+<%= form_for :event, url: mall_events_path(@mall) do |form|%>
+  <div class="field">
+  <%= form.label :name %>
+  <%= form.text_field :name, id: :event_name %>
   </div>
 
-  <div class="form-actions">
-  <%= f.button :submit %>
+  <div class="field">
+  <%= form.label :description %>
+  <%= form.text_field :description, id: :event_description %>
+  </div>
+
+  <div class="field">
+  <%= form.label :starting_date %>
+  <%= form.date_select :starting_date, id: :event_starting_date %>
+  </div>
+
+  <div class="field">
+  <%= form.label :ending_date %>
+  <%= form.date_select :ending_date, id: :event_ending_date %>
+  </div>
+
+  <div class="field">
+  <%= form.label :starting_time %>
+  <%= form.time_select :starting_time, id: :event_starting_time %>
+  </div>
+
+  <div class="field">
+  <%= form.label :ending_time %>
+  <%= form.time_select :ending_time, id: :event_ending_time %>
+  </div>
+
+  <div class="field">
+  <%=form.label :event_image%>
+  <%= form.file_field :eventimage%>
+  </div>
+
+
+  <div class="actions">
+  <%= form.submit %>
   </div>
 <% end %>

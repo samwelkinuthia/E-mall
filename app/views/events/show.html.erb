@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <p>
 <strong>Name:</strong>
 <%= @event.name %>
@@ -10,21 +9,29 @@
 <%= @event.description %>
 </p>
 
-
-
 <p>
-<strong>Venue:</strong>
-<%= @event.venue %>
+<strong>Starting date:</strong>
+<%= @event.starting_date %>
 </p>
 
 <p>
-<strong>Hosted by:</strong>
-<%= @event.hosted_by %>
+<strong>Ending date:</strong>
+<%= @event.ending_date %>
 </p>
 
 <p>
-<strong>Time:</strong>
-<%= @event.time %>
+<strong>Starting time:</strong>
+<%= @event.starting_time %>
+</p>
+
+<p>
+<strong>Ending time:</strong>
+<%= @event.ending_time %>
+</p>
+
+<p>
+<strong>Mall:</strong>
+<%= @event.mall %>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |

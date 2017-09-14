@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170912135508) do
+=======
+ActiveRecord::Schema.define(version: 20170914115650) do
+>>>>>>> c810ee3df6238166bedb631d2afd0fdaa4a1d3f5
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +25,7 @@ ActiveRecord::Schema.define(version: 20170912135508) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "contacts", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -39,15 +44,36 @@ ActiveRecord::Schema.define(version: 20170912135508) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "mall_id"
+=======
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.date "starting_date"
+    t.date "ending_date"
+    t.time "starting_time"
+    t.time "ending_time"
+    t.bigint "mall_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "eventimage"
+>>>>>>> c810ee3df6238166bedb631d2afd0fdaa4a1d3f5
     t.index ["mall_id"], name: "index_events_on_mall_id"
   end
 
   create_table "features", force: :cascade do |t|
     t.string "name"
+<<<<<<< HEAD
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "mall_id"
+=======
+    t.string "description"
+    t.string "featureimage"
+    t.bigint "mall_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+>>>>>>> c810ee3df6238166bedb631d2afd0fdaa4a1d3f5
     t.index ["mall_id"], name: "index_features_on_mall_id"
   end
 
@@ -82,6 +108,7 @@ ActiveRecord::Schema.define(version: 20170912135508) do
     t.bigint "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
     t.index ["room_id"], name: "index_products_on_room_id"
   end
 
@@ -104,6 +131,8 @@ ActiveRecord::Schema.define(version: 20170912135508) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category_id"
+    t.string "storeimage"
+    t.string "storeavatar"
     t.index ["mall_id"], name: "index_rooms_on_mall_id"
   end
 

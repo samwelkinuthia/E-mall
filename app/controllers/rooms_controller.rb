@@ -1,16 +1,23 @@
 class RoomsController < ApplicationController
+
+  load_and_authorize_resource
+  skip_authorize_resource :only => [:index, :show]
+
   before_action :set_room, only: [:show, :edit, :update, :destroy]
 
   # GET /rooms
   # GET /rooms.json
   def index
     @rooms = Room.all
+    @mall = Mall.find_by(params[:id])
   end
 
   # GET /rooms/1
   # GET /rooms/1.json
   def show
     @mall = Mall.find_by(id: params[:mall_id])
+    @room = Room.find(params[:id])
+    @products = @room.products
   end
 
   # GET /rooms/new
@@ -71,6 +78,6 @@ class RoomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_params
-      params.require(:room).permit(:name, :description, :room_number, :area, :wing, :floor, :opening_time, :closing_time, :phone, :email, :facebook, :instagram, :twitter, :occupied, :mall_id, :category_id)
+      params.require(:room).permit(:name, :description, :room_number, :area, :wing, :floor, :opening_time, :closing_time, :phone, :email, :facebook, :instagram, :twitter, :occupied, :mall_id, :category_id, :storeimage, :storeavatar)
     end
 end

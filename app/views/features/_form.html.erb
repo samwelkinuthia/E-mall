@@ -1,12 +1,23 @@
-<%= simple_form_for(@feature) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :description %>
+<%= form_for :feature, url: mall_features_path(@mall) do |form| %>
+
+  <div class="field">
+  <%= form.label :name %>
+  <%= form.text_field :name, id: :feature_name %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="field">
+  <%= form.label :description %>
+  <%= form.text_field :description, id: :feature_description %>
+  </div>
+
+
+  <div class="field">
+  <%= form.label :feature_image%>
+  <%= form.file_field :featureimage%>
+  </div>
+
+  <div class="actions">
+  <%= form.submit %>
   </div>
 <% end %>

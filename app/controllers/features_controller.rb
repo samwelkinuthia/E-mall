@@ -24,11 +24,19 @@ class FeaturesController < ApplicationController
   # POST /features
   # POST /features.json
   def create
+<<<<<<< HEAD
     @feature = Feature.new(feature_params)
 
     respond_to do |format|
       if @feature.save
         format.html { redirect_to @feature, notice: 'Feature was successfully created.' }
+=======
+    @mall=Mall.find_by(id: params[:mall_id])
+    @feature = @mall.features.new(feature_params)
+    respond_to do |format|
+      if @feature.save
+        format.html { redirect_to @mall, notice: 'Feature was successfully created.' }
+>>>>>>> c810ee3df6238166bedb631d2afd0fdaa4a1d3f5
         format.json { render :show, status: :created, location: @feature }
       else
         format.html { render :new }
@@ -69,6 +77,10 @@ class FeaturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def feature_params
+<<<<<<< HEAD
       params.require(:feature).permit(:name, :description)
+=======
+      params.require(:feature).permit(:name, :description, :featureimage, :mall_id)
+>>>>>>> c810ee3df6238166bedb631d2afd0fdaa4a1d3f5
     end
 end

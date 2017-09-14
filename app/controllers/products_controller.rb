@@ -1,4 +1,8 @@
 class ProductsController < ApplicationController
+
+  load_and_authorize_resource
+  skip_authorize_resource :only => [:index, :edit, :show]
+
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products
@@ -26,11 +30,12 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
+    @mall = Mall.find(params[:mall_id])
     @room = Room.find_by(id: params[:room_id])
     @product = @room.products.new(product_params)
     respond_to do |format|
       if @product.save
-        format.html { redirect_to mall_room_products_path, notice: 'Product was successfully created.' }
+        format.html { redirect_to mall_room_path(@mall, @room), notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
@@ -61,6 +66,12 @@ class ProductsController < ApplicationController
       format.html { redirect_to mall_room_products_path, notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def import
+    @room = Room.find(params[:room_id])
+    Product.import(@room, params[:file])
+    redirect_to mall_room_products_path, notice: "successfully uploaded your products"
   end
 
   private

@@ -4,8 +4,10 @@ class Mall < ApplicationRecord
   mount_uploader :mallpicture, MallpictureUploader
 
 
-  has_many :rooms
-  has_many :mall_attachments
+  has_many :rooms, dependent: :destroy
+  has_many :mall_attachments, dependent: :destroy
+  has_many :events, dependent: :destroy
+  has_many :features, dependent: :destroy
   accepts_nested_attributes_for :mall_attachments
   has_many :events
   has_many :features

@@ -1,36 +1,22 @@
+<<<<<<< HEAD
 <p id="notice"><%= notice %></p>
 
 <h1>Events</h1>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Date</th>
-<th>Venue</th>
-<th>Hosted by</th>
-<th>Time</th>
-<th colspan="3"></th>
-</tr>
-</thead>
-
-<tbody>
 <% @events.each do |event| %>
-  <tr>
-  <td><%= event.name %></td>
-  <td><%= event.description %></td>
-  <td><%= event.venue %></td>
-  <td><%= event.hosted_by %></td>
-  <td><%= event.time %></td>
-  <td><%= link_to 'Show', event %></td>
-  <td><%= link_to 'Edit', edit_event_path(event) %></td>
-  <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <%if event.mall_id == @mall.id%>
+  <div class="row">
+  <div class="col-md-6">
+  <%= image_tag event.eventimage_url.to_s, class: 'img-responsive'%>
+  </div>
+  <div class="col-md-6">
+  <p>
+  <%= event.name %>
+  <%= event.description %>
+  <p>starting from <%= event.starting_date.strftime('%A, %b %d') %> to <%= event.ending_date.strftime('%A, %b %d') %></p> <br>
+  <%= event.starting_time.strftime('%H:%M:%p') %> to <%= event.ending_time.strftime('%H:%M:%p') %>
+  </p>
+  </div>
+  </div>
+  <%#= link_to 'Show', mall_event_path(event.mall_id,event) %>
 <% end %>
-</tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Event', new_event_path %>
+<%end%>

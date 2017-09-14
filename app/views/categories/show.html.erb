@@ -1,9 +1,11 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Name:</strong>
-  <%= @category.name %>
+  <strong><%=@category.name%></strong>
+
 </p>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<%@rooms.each do |room|%>
+<% if room.category_id == @category.id %>
+<%=link_to room.name, mall_room_path(room.mall_id,room)%><br>
+<%= link_to room.mall.name, mall_path(room.mall_id)%> <br>
+<%end%>
+<%end%>
