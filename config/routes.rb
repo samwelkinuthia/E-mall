@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "/pages/:page" => "pages#show"
+
   resources :features
   resources :events
   match '/contacts',     to: 'contacts#new',             via: 'get'
