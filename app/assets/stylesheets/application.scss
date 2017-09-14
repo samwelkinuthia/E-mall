@@ -10,15 +10,21 @@
 * files in this directory. Styles in this file should be added after the last require_* statement.
 * It is generally better to create a new file per style scope.
 *
+
 *= require animate
 *= require toastr
 *= require_self
 *= require_tree .
 */
-@import "bootstrap-sprockets";
 @import "bootstrap";
+@import "bootstrap-sprockets";
 @import "font-awesome";
+
+// custom stylesheets
 @import "navbar";
+@import "malls_index";
+
+
 #footer {
   clear: both;
   position: relative;
@@ -51,12 +57,32 @@
   color: #99ca3d;
   border: 1px solid #99ca3d;
 }
+#column1{
+  color: white;
+}
+#About{
+  background-image:  url("");
+}
+.parallax { 
+    
+ background-image: url("http://www.emall.com.kw/assets/images/addr.jpg");
 
-// custom stylesheets
-@import "navbar";
-@import "malls_index";
+    /* Full height */
+ height: 100%; 
 
-
+    /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.myparallax{
+    /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 body{
   padding-top: 70px;
