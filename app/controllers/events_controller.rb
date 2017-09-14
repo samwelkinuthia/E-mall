@@ -4,10 +4,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-<<<<<<< HEAD
-=======
     @mall = Mall.find_by(id: params[:mall_id])
->>>>>>> c810ee3df6238166bedb631d2afd0fdaa4a1d3f5
     @events = Event.all
   end
 
@@ -28,19 +25,11 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-<<<<<<< HEAD
-    @event = Event.new(event_params)
-
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-=======
     @mall = Mall.find_by(id: params[:mall_id])
     @event = @mall.events.new(event_params)
     respond_to do |format|
       if @event.save
         format.html { redirect_to @mall, notice: 'Event was successfully created.' }
->>>>>>> c810ee3df6238166bedb631d2afd0fdaa4a1d3f5
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -74,7 +63,6 @@ class EventsController < ApplicationController
   end
 
   private
-<<<<<<< HEAD
   # Use callbacks to share common setup or constraints between actions.
   def set_event
     @event = Event.find(params[:id])
@@ -82,17 +70,6 @@ class EventsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
-    params.require(:event).permit(:name, :description, :venue, :hosted_by, :time, :mall_id)
+    params.require(:event).permit(:name, :description, :starting_date, :ending_date, :starting_time, :ending_time, :mall_id, :eventimage)
   end
-=======
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def event_params
-      params.require(:event).permit(:name, :description, :starting_date, :ending_date, :starting_time, :ending_time, :mall_id, :eventimage)
-    end
->>>>>>> c810ee3df6238166bedb631d2afd0fdaa4a1d3f5
 end
