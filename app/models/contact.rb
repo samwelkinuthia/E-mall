@@ -1,4 +1,4 @@
-class Contact < ApplicationRecord
+class Contact < MailForm::Base
   attribute :name,      :validate => true
   attribute :email,     :validate => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
   attribute :phone
@@ -10,7 +10,7 @@ class Contact < ApplicationRecord
   def headers
     {
       :subject => "My Contact Form",
-      :to => "your_email@example.org",
+      :to => "naajib38@gmail.com",
       :from => %("#{name}" <#{email}>)
     }
   end
