@@ -10,11 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20170912135508) do
-=======
-ActiveRecord::Schema.define(version: 20170914115650) do
->>>>>>> c810ee3df6238166bedb631d2afd0fdaa4a1d3f5
+
+ActiveRecord::Schema.define(version: 20170914130656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +22,6 @@ ActiveRecord::Schema.define(version: 20170914115650) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
   create_table "contacts", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -37,16 +33,6 @@ ActiveRecord::Schema.define(version: 20170914115650) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
-    t.text "description"
-    t.string "venue"
-    t.string "hosted_by"
-    t.time "time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "mall_id"
-=======
-  create_table "events", force: :cascade do |t|
-    t.string "name"
     t.string "description"
     t.date "starting_date"
     t.date "ending_date"
@@ -56,24 +42,16 @@ ActiveRecord::Schema.define(version: 20170914115650) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "eventimage"
->>>>>>> c810ee3df6238166bedb631d2afd0fdaa4a1d3f5
     t.index ["mall_id"], name: "index_events_on_mall_id"
   end
 
   create_table "features", force: :cascade do |t|
     t.string "name"
-<<<<<<< HEAD
-    t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "mall_id"
-=======
     t.string "description"
     t.string "featureimage"
     t.bigint "mall_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
->>>>>>> c810ee3df6238166bedb631d2afd0fdaa4a1d3f5
     t.index ["mall_id"], name: "index_features_on_mall_id"
   end
 
@@ -133,6 +111,7 @@ ActiveRecord::Schema.define(version: 20170914115650) do
     t.integer "category_id"
     t.string "storeimage"
     t.string "storeavatar"
+    t.string "website"
     t.index ["mall_id"], name: "index_rooms_on_mall_id"
   end
 
