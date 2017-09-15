@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20170914130656) do
 
   # These are extensions that must be enabled in order to support this database
@@ -67,8 +66,8 @@ ActiveRecord::Schema.define(version: 20170914130656) do
     t.boolean "parking_space"
     t.text "description"
     t.text "email"
-    t.integer "phone_no"
-    t.integer "rooms"
+    t.bigint "phone_no"
+    t.integer "spaces"
     t.time "opening_time"
     t.time "closing_time"
     t.boolean "rooms_status"
