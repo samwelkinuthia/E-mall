@@ -1,6 +1,6 @@
 <div class="container-fluid room">
   <div class="row room_header">
-    <h1>Welcome to the
+    <h1>Welcome to 
       <span><%=@room.name%></span>
     </h1>
   </div>
@@ -11,8 +11,8 @@
     <div class="row room_products">
       <h1>Our Products</h1>
       <%@products.each do |product|%>
-      <div class="col-md-4 product_tile">
-        <img src="<%=product.image%>" class="img-responsive">
+      <div class="col-md-4 col-xs-12 product_tile">
+        <img src="<%=product.image%>" class="img-responsive product_image">
         <h3><%=product.name%></h3>
         <h5><%=product.price%>
           Ksh</h5>
@@ -25,6 +25,7 @@
   </div>
 
   <div class="row room_details">
+    <h1>OPENING AND CLOSING TIME</h1>
     <div class="col-md-6 col-xs-12">
       <i class="fa fa-clock-o" id="room_time_icon" aria-hidden="true"></i>
       <h3><%= @room.opening_time.strftime('%H:%M:%p') %></h3>

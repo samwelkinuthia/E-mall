@@ -10,12 +10,12 @@
     <%= @mall.closing_time.strftime('%H:%M:%p') %></p>
   <h3><%=@free%>
     rooms available</h3>
-    <p>
-      <i class="fa fa-phone contact_phone" aria-hidden="true"></i>
-      <%=@mall.phone_no%></p>
-    <p>
-      <i class="fa fa-envelope-o contact_email" aria-hidden="true"></i>
-      <%=@mall.email%></p>
+  <p>
+    <i class="fa fa-phone contact_phone" aria-hidden="true"></i>
+    <%=@mall.phone_no%></p>
+  <p>
+    <i class="fa fa-envelope-o contact_email" aria-hidden="true"></i>
+    <%=@mall.email%></p>
 </div>
 
 <div class="container">
@@ -43,7 +43,7 @@
 <div class="mall_images">
   <div class="row">
     <%if @mall_attachments.any?%>
-        <h1>Sneak Peek</h1>
+    <h1>Sneak Peek</h1>
     <%@mall_attachments.each do |m|%>
     <div class="col-md-4 col-xs-12">
       <%=image_tag m.avatar_url, class: "img-responsive mall_attachment"%>
@@ -61,18 +61,17 @@
 <div class="container">
   <div class="row mall_rooms">
     <h1>Stores Present</h1>
+    <% @rooms.each do |room| %>
     <div class="col-md-4 col-xs-12 mall_room">
-      <% @rooms.each do |room| %>
       <%= image_tag room.storeimage_url.to_s, class: "store_image img-responsive"%>
       <div class="mall_room_name">
         <h1>
           <%= room.name %>
         </h1>
-
         <%if ((room.opening_time).strftime('%H:%M')..(room.closing_time).strftime('%H:%M')).include?Time.now.strftime('%H:%M')%>
-          <button class="btn btn-success">Currently Open</button>
+        <button class="btn btn-success">Currently Open</button>
         <%else%>
-          <button class="btn btn-failure">Closed</button>
+        <button class="btn btn-failure">Closed</button>
         <%end%>
       </div>
       <div class="mall_room_link">
@@ -82,8 +81,8 @@
       </div>
       <%#= link_to 'Edit', edit_mall_room_path(room.mall_id,room) %>
       <%#= link_to 'Destroy', mall_room_path(room.mall_id,room), method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
     </div>
+    <% end %>
   </div>
 </div>
 
