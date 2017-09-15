@@ -62,13 +62,13 @@ class FeaturesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_feature
-      @feature = Feature.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_feature
+    @feature = Feature.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def feature_params
-      params.require(:feature).permit(:name, :description, :featureimage, :mall_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def feature_params
+    params.require(:feature).permit(:name, :description, :featureimage, :mall_id)
+  end
 end

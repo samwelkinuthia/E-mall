@@ -46,6 +46,10 @@ gem 'devise'
 gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'
 gem 'cancancan'
+gem 'mail_form'
+gem 'simple_form'
+
+
 
 
 group :development, :test do

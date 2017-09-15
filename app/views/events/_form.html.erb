@@ -1,41 +1,42 @@
+
 <%= form_for :event, url: mall_events_path(@mall) do |form|%>
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :event_name %>
+  <%= form.label :name %>
+  <%= form.text_field :name, id: :event_name %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :event_description %>
+  <%= form.label :description %>
+  <%= form.text_field :description, id: :event_description %>
   </div>
 
   <div class="field">
-    <%= form.label :starting_date %>
-    <%= form.date_select :starting_date, id: :event_starting_date %>
+  <%= form.label :starting_date %>
+  <%= form.date_select :starting_date, id: :event_starting_date %>
   </div>
 
   <div class="field">
-    <%= form.label :ending_date %>
-    <%= form.date_select :ending_date, id: :event_ending_date %>
+  <%= form.label :ending_date %>
+  <%= form.date_select :ending_date, id: :event_ending_date %>
   </div>
 
   <div class="field">
-    <%= form.label :starting_time %>
-    <%= form.time_select :starting_time, id: :event_starting_time %>
+  <%= form.label :starting_time %>
+  <%= form.time_select :starting_time, id: :event_starting_time %>
   </div>
 
   <div class="field">
-    <%= form.label :ending_time %>
-    <%= form.time_select :ending_time, id: :event_ending_time %>
+  <%= form.label :ending_time %>
+  <%= form.time_select :ending_time, id: :event_ending_time %>
   </div>
 
   <div class="field">
-    <%=form.label :event_image%>
-    <%= form.file_field :eventimage%>
+  <%=form.label :event_image%>
+  <%= form.file_field :eventimage%>
   </div>
 
 
   <div class="actions">
-    <%= form.submit %>
+  <%= form.submit %>
   </div>
 <% end %>

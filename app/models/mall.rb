@@ -9,5 +9,7 @@ class Mall < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :features, dependent: :destroy
   accepts_nested_attributes_for :mall_attachments
+  has_many :events
+  has_many :features
 
 end

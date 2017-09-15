@@ -1,18 +1,22 @@
+<<<<<<< HEAD
+<p id="notice"><%= notice %></p>
+
+<h1>Events</h1>
 <% @events.each do |event| %>
-<%if event.mall_id == @mall.id%>
-<div class="row">
+  <%if event.mall_id == @mall.id%>
+  <div class="row">
   <div class="col-md-6">
-    <%= image_tag event.eventimage_url.to_s, class: 'img-responsive'%>
+  <%= image_tag event.eventimage_url.to_s, class: 'img-responsive'%>
   </div>
   <div class="col-md-6">
-    <p>
-      <%= event.name %>
-      <%= event.description %>
-      <p>starting from <%= event.starting_date.strftime('%A, %b %d') %> to <%= event.ending_date.strftime('%A, %b %d') %></p> <br>
-      <%= event.starting_time.strftime('%H:%M:%p') %> to <%= event.ending_time.strftime('%H:%M:%p') %>
-    </p>
+  <p>
+  <%= event.name %>
+  <%= event.description %>
+  <p>starting from <%= event.starting_date.strftime('%A, %b %d') %> to <%= event.ending_date.strftime('%A, %b %d') %></p> <br>
+  <%= event.starting_time.strftime('%H:%M:%p') %> to <%= event.ending_time.strftime('%H:%M:%p') %>
+  </p>
   </div>
-</div>
-<%#= link_to 'Show', mall_event_path(event.mall_id,event) %>
+  </div>
+  <%#= link_to 'Show', mall_event_path(event.mall_id,event) %>
 <% end %>
 <%end%>

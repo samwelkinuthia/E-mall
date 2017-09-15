@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>MallE</title>
-<%= csrf_meta_tags %>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
+  <head>
+    <title>MallE</title>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
 
-<body>
-<%= render "shared/navbar" %>
-<%= yield %>
-<% unless flash.empty? %>
-<script type="text/javascript">
-<% flash.each do |f| %>
-  <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
-  toastr['<%= type %>']('<%= f[1] %>');
-<% end %>
-</script>
+  <body>
+    <%= render "shared/navbar" %>
+    <%= yield %>
+    <%= render "shared/footer" %>
+    <% unless flash.empty? %>
+    <script type="text/javascript">
+      <% flash.each do |f| %>
+      <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+      toastr['<%= type %>']('<%= f[1] %>');
+      <% end %>
+    </script>
+    <% end %>
 
-
-<% end %>
-
-</body>
+  </body>
 </html>

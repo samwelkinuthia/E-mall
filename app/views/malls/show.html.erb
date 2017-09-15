@@ -4,97 +4,91 @@
 <div class="header_show">
   <h1><%=@mall.name%></h1>
   <p><%=@mall.description%></p>
+  <p>Open between
+    <%= @mall.opening_time.strftime('%H:%M:%p') %>
+    and
+    <%= @mall.closing_time.strftime('%H:%M:%p') %></p>
   <h3><%=@free%>
     rooms available</h3>
+    <p>
+      <i class="fa fa-phone contact_phone" aria-hidden="true"></i>
+      <%=@mall.phone_no%></p>
+    <p>
+      <i class="fa fa-envelope-o contact_email" aria-hidden="true"></i>
+      <%=@mall.email%></p>
 </div>
 
 <div class="container">
   <div class="col-md-6">
     <div class="container">
+      <h3>Add your Store.</h3>
       <%=render 'rooms/form'%>
     </div>
   </div>
   <div class="col-md-6">
     <div class="row">
+      <h3>Add events at
+        <%=@mall.name%></h3>
       <%=render 'events/form'%>
     </div>
-    <div class="row" style="padding:10px;">
+    <div class="row">
+      <h3>Add
+        <%=@mall.name%>
+        features</h3>
       <%= render 'features/form'%>
     </div>
   </div>
 </div>
 
-<p>
-  <strong>Parking space:</strong>
-  <%= @mall.parking_space %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @mall.email %>
-</p>
-
-<p>
-  <strong>Phone no:</strong>
-  <%= @mall.phone_no %>
-</p>
-
-<p>
-  <strong>Rooms:</strong>
-  <%= @mall.spaces%>
-</p>
-
-<p>
-  <strong>Opening time:</strong>
-  <%= @mall.opening_time %>
-</p>
-
-<p>
-  <strong>Closing time:</strong>
-  <%= @mall.closing_time %>
-</p>
-
-<p>
-  <strong>Rooms status:</strong>
-  <%= @mall.rooms_status %>
-  <%=@mall.latitude%>
-</p>
-
-<%if @mall_attachments.any?%>
-  <%@mall_attachments.each do |m|%>
-    <div class="col-md-3">
-      <%=image_tag m.avatar_url, class: "img-responsive"%>
+<div class="mall_images">
+  <div class="row">
+    <%if @mall_attachments.any?%>
+        <h1>Sneak Peek</h1>
+    <%@mall_attachments.each do |m|%>
+    <div class="col-md-4 col-xs-12">
+      <%=image_tag m.avatar_url, class: "img-responsive mall_attachment"%>
     </div>
-  <%end%>
-<%else%>
-  <h1>add images when adding mall</h1>
-<%end%>
-
-<%= link_to 'Edit', edit_mall_path(@mall) %>
-|
-<%= link_to 'Back', malls_path %>
-<br>
-
-
-<div class="container">
-  <div class="col-md-4 col-xs-12">
-    <p>
-      <% @rooms.each do |room| %>
-      <%= image_tag room.storeimage_url.to_s, class: "store_image img-responsive"%>
-      <%= room.name %>
-      <%= room.description %>
-      <%= link_to 'Show', mall_room_path(room.mall_id,room) %>
-      <%#= link_to 'Edit', edit_mall_room_path(room.mall_id,room) %>
-      <%#= link_to 'Destroy', mall_room_path(room.mall_id,room), method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
-    </p>
+    <%end%>
+    <%else%>
+    <h1>add images when adding mall</h1>
+    <%end%>
   </div>
 </div>
 
+<%#= link_to 'Edit', edit_mall_path(@mall) %>
+<%#= link_to 'Back', malls_path %>
 
+<div class="container">
+  <div class="row mall_rooms">
+    <h1>Stores Present</h1>
+    <div class="col-md-4 col-xs-12 mall_room">
+      <% @rooms.each do |room| %>
+      <%= image_tag room.storeimage_url.to_s, class: "store_image img-responsive"%>
+      <div class="mall_room_name">
+        <h1>
+          <%= room.name %>
+        </h1>
 
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
+        <%if ((room.opening_time).strftime('%H:%M')..(room.closing_time).strftime('%H:%M')).include?Time.now.strftime('%H:%M')%>
+          <button class="btn btn-success">Currently Open</button>
+        <%else%>
+          <button class="btn btn-failure">Closed</button>
+        <%end%>
+      </div>
+      <div class="mall_room_link">
+        <%= link_to mall_room_path(room.mall_id,room) do%>
+        <button class="btn btn-default">Check it Out</button>
+        <%end%>
+      </div>
+      <%#= link_to 'Edit', edit_mall_room_path(room.mall_id,room) %>
+      <%#= link_to 'Destroy', mall_room_path(room.mall_id,room), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="map">
+  <div id="map" class="map"></div>
 </div>
 
 <script type="text/javascript">

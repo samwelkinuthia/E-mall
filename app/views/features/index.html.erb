@@ -1,9 +1,10 @@
+
 <h1>Features</h1>
 <% @features.each do |feature| %>
-<div class="col-md-4">
+  <div class="col-md-4">
   <%=image_tag feature.featureimage_url.to_s, class: "img-responsive"%>
-</div>
-<%= feature.name %>
-<%= feature.description %>
-<%#= link_to 'Show', mall_feature_path(feature.mall_id, feature)%>
+  </div>
+  <%= feature.name %>
+  <%= feature.description %>
+  <%#= link_to 'Show', mall_feature_path(feature.mall_id, feature)%>
 <% end %>
