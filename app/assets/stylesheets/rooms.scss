@@ -11,6 +11,7 @@
     font-size: 20px;
     padding:30px;
     margin:auto;
+    border-top:1px solid #f2f2f2;
   }
   .room_products{
     text-align: center;
@@ -33,6 +34,7 @@
     .col-md-6{
       text-align: center;
       padding:20px;
+      border-right:1px solid #f2f2f2;
     }
     #room_time_icon{
       font-size: 70px;
@@ -44,12 +46,16 @@
     font-size:17px;
   }
   .room_contacts{
-    background-color:#ccf2ff;
+    background-color:#f2f2f2;
     margin-bottom: 0px;
     text-align: center;
     .contact_icon{
       font-size: 50px;
       margin: 20px;
+    }
+    .contact_phone, .contact_email{
+      font-weight:bold;
+      font-size:18px;
     }
   }
 }

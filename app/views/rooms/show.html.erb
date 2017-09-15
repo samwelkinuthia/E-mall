@@ -56,6 +56,21 @@
     </p>
   </div>
 
+  <div class="container">
+    <%=form_tag import_mall_room_products_path(@mall, @room), multipart: true do%>
+    <div class="well">
+      <p>You can upload your product spreadsheet file directly</p>
+      <%= file_field_tag :file, required: true%> <br>
+
+      <%=submit_tag "Upload", class: "btn btn-default"%>
+      <br>
+      <br>
+      <p>You can add products manually as well</p>
+      <%=render 'products/form'%>
+    </div>
+    <%end%>
+  </div>
+
   <div class="row room_contacts">
     <a href="<%=@room.facebook%>">
       <i class="fa fa-facebook-official contact_icon" aria-hidden="true"></i>
@@ -66,29 +81,21 @@
     <a href="<%=@room.website%>">
       <i class="fa fa-internet-explorer contact_icon" aria-hidden="true"></i>
     </a>
-    <a href="<%@room.twitter%>">
+    <a href="<%=@room.twitter%>">
       <i class="fa fa-twitter contact_icon" aria-hidden="true"></i>
     </a>
 
     <br>
 
-    <p><%=@room.phone%></p>
-    <p><%=@room.email%></p>
+    <p>
+      <i class="fa fa-phone contact_phone" aria-hidden="true"></i>
+      <%=@room.phone%></p>
+    <p>
+      <i class="fa fa-envelope-o contact_email" aria-hidden="true"></i>
+      <%=@room.email%></p>
   </div>
 </div>
-<!--
-<%=render 'products/form'%>
-
-<p>You can also upload your csv file directly</p>
-
-<%=form_tag import_mall_room_products_path(@mall, @room), multipart: true do%>
-<div class="well">
-  <%= file_field_tag :file, required: true%>
-  <br>
-  <%=submit_tag "Upload CSV"%>
-</div>
-<%end%>
-<br>
+<!-- <br>
 <%= link_to 'Edit', edit_mall_room_path(@room) %>
 |
 <%= link_to 'Back', mall_path %> -->

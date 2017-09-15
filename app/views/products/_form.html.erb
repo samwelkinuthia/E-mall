@@ -7,10 +7,10 @@
 
   <div class="field">
     <%= form.label :price %>
-    <%= form.text_field :price, id: :product_price %>
+    <%= form.number_field :price, id: :product_price %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-default" %>
   </div>
 <% end %>

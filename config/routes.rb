@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   get "/pages/:page" => "pages#show"
   match '/contacts',     to: 'contacts#new',             via: 'get'
   resources "contacts", only: [:new, :create]
