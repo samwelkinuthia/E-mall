@@ -14,6 +14,7 @@ class CreateRooms < ActiveRecord::Migration[5.1]
       t.string :facebook
       t.string :instagram
       t.string :twitter
+      t.integer :rent
       t.boolean :occupied, default: false
       t.belongs_to :mall, foreign_key: true
 
