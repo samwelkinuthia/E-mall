@@ -52,7 +52,7 @@ class MallsController < ApplicationController
         format.json { render json: @mall.errors, status: :unprocessable_entity }
       end
     end
-    Room.create_rooms
+    Room.create_rooms(@mall.id)
   end
 
   # PATCH/PUT /malls/1
