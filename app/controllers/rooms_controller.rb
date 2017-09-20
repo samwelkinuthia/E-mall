@@ -32,9 +32,6 @@ class RoomsController < ApplicationController
   # POST /rooms
   # POST /rooms.json
   def create
-    @mall = Mall.find(params[:id])
-    @mall.total_rooms
-
     @mall = Mall.find_by(id: params[:mall_id])
     @category = Category.all
     @room = @mall.rooms.new(room_params)
@@ -55,11 +52,11 @@ class RoomsController < ApplicationController
   # PATCH/PUT /rooms/1.json
   def update
     respond_to do |format|
-      if @room.update!(room_params)
-        format.html { redirect_to @room, notice: 'Room was successfully updated.' }
+      if @room.update(room_params)
+        format.html { redirect_to mall_rooms_path, notice: 'Room was successfully updated.' }
         format.json { render :show, status: :ok, location: @room }
       else
-        format.html { render :edit }
+        format.html { render :edit, notice: "Failed" }
         format.json { render json: @room.errors, status: :unprocessable_entity }
       end
     end
