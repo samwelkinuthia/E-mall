@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :features
   end
   resources :categories
-  root "malls#index"
+  root "home#index"
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
 

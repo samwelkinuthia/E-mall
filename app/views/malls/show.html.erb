@@ -14,8 +14,11 @@
   <p>
     <i class="fa fa-envelope-o contact_email" aria-hidden="true"></i>
     <%=@mall.email%></p>
+    <h5><u>Closest malls to <%=@mall.name%></u></h5>
+  <% for mall in @mall.nearbys(10)%>
+    <li><%=link_to mall.name, mall%>(<%= mall.distance.round(2)%>miles)</li>
+  <%end%>
 </div>
-
 <div class="container">
   <div class="col-md-6">
     <div class="container">
