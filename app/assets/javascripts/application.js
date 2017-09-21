@@ -19,4 +19,6 @@
 //= require underscore
 //= require navbar
 //= require gmaps/google
+//= require home
 //= require_tree .
+
