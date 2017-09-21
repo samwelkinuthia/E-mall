@@ -17,6 +17,21 @@
       <i class="fa fa-envelope-o contact_email" aria-hidden="true"></i>
       <%=@mall.email%></p>
 </div>
+ 
+
+<% if @reviews.blank? %>
+<h3>No reviews yet,Would you like to add the first!</h3>
+<%= link_to "Add Review", new_review_path(@mall), class: "btn btn-success" %>
+<% else %>
+<% @reviews.each do |review| %> 
+<div></div>
+    <div class="reviews">  
+      <div class="star-rating" data-score=<%= review.rating %> >
+      </div>
+      <p><%= review.content %></p>
+    </div>
+  <% end %>
+ <% end %>
 
 <div class="container">
   <div class="col-md-6">
@@ -36,7 +51,13 @@
         <%=@mall.name%>
         features</h3>
       <%= render 'features/form'%>
-    </div>
+    </div>    
+    <!-- <div class="row">
+      <h3>Add
+        <%=@mall.name%>
+        Reviews</h3>
+      <%#= render 'reviews/form'%>
+    </div> -->
   </div>
 </div>
 
@@ -103,4 +124,12 @@
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
   });
+
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+      return $(this).attr("data-score"):
+    }
+  })
 </script>
