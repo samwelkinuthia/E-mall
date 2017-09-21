@@ -1,0 +1,41 @@
+@import "sidenav";
+
+.burger_icon {
+  cursor: pointer;
+  color: #0e2945;
+  margin: 30px;
+  left: 0;
+  position: absolute;
+  .navicon {
+    font-size: 70px;
+  }
+}
+
+.fullscreen-bg__video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  background: url('https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider2.jpg') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+  position: absolute;
+}
+
+.mall_button{
+  text-align: center;
+  margin-top:20%;
+  button{
+    border:0px solid red;
+    padding:30px;
+    font-size: 17px;
+    color:white;
+    border-radius:4px;
+    background-color:#0E2945;
+  }
+}

@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <!-- BACKGROUND VIDEO -->
+
+  <%#=video_tag("mall.mp4", autoplay: true, muted: true, class:"fullscreen-bg__video")%>
+
+  <!-- START OF NAVIGATION BAR AND SIDENAV -->
+
+  <span class="burger_icon" onclick="openNav()">
+    <i class="fa fa-arrow-circle-right navicon" aria-hidden="true"></i>
+  </span>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <h1>What are you looking for?</h1>
+    <%@categories.each do |category|%>
+    <div class="categories">
+      <p><%= link_to category.name, category %></p>
+    </div>
+    <%end%>
+  </div>
+
+  <div class="mall_button">
+    <%=link_to malls_path do%>
+    <button>View Malls</button>
+    <%end%>
+  </div>
+
+  <!-- HOMEPAGE CONTENT -->
+</div>
