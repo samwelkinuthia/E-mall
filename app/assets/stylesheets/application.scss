@@ -30,66 +30,8 @@
 @import "rooms";
 @import "events";
 @import "features";
+@import "footer";
 
-
-#footer {
-  clear: both;
-  position: relative;
-  z-index: 10;
-  /*height: 9em;*/
-  margin-top: -3em;
-  background-color: #222;
-  text-align: center;
-  color: #fff;
-  
-}
-
-.center-items {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.social {
-  background-color: #99ca3d;
-  color: #fff;
-  width: 50px;
-  height: 50px;
-  margin: 10px;
-  border-radius: 50%;
-}
-
-.social:hover {
-  background-color: transparent;
-  color: #99ca3d;
-  border: 1px solid #99ca3d;
-}
-#column1{
-  color: white;
-}
-#About{
-  background-image:  url("");
-}
-.parallax { 
-    
- background-image: url("http://www.emall.com.kw/assets/images/addr.jpg");
-
-    /* Full height */
- height: 100%; 
-
-    /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.myparallax{
-    /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
 body{
   padding-top: 70px;

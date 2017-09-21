@@ -1,4 +1,4 @@
-<%= form_for :room, url: mall_rooms_path(@mall) do |form| %>
+<%= form_for :room, url: mall_rooms_path(@mall), method: :post do |form| %>
 
 <div class="field">
   <%=form.label :Main_store_image%>

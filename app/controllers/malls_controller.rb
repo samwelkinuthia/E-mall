@@ -1,6 +1,6 @@
 class MallsController < ApplicationController
   load_and_authorize_resource
-  skip_authorize_resource :only => [:index, :show]
+  skip_authorize_resource only: %i[index show]
 
   before_action :set_mall, only: %i[show edit update destroy]
 
@@ -25,7 +25,9 @@ class MallsController < ApplicationController
     end
     @rooms = @mall.rooms
     @free = ((@mall.spaces).to_i - (@mall.rooms.count).to_i)
-    @reviews = @mall.reviews                                                 
+    @reviews = @mall.reviews                                               
+    # @free = (@mall.spaces.to_i - @mall.rooms.count.to_i)
+
   end
 
   # GET /malls/new
@@ -43,7 +45,7 @@ class MallsController < ApplicationController
     respond_to do |format|
       if @mall.save
         params[:mall_attachments]['avatar'].each do |a|
-          @mall_attachments = @mall.mall_attachments.create!(:avatar => a, :mall_id => @mall.id)
+          @mall_attachments = @mall.mall_attachments.create!(avatar: a, mall_id: @mall.id)
         end
         format.html { redirect_to @mall, notice: 'Mall was successfully created.' }
         format.json { render :show, status: :created, location: @mall }
@@ -52,6 +54,7 @@ class MallsController < ApplicationController
         format.json { render json: @mall.errors, status: :unprocessable_entity }
       end
     end
+    Room.create_rooms(@mall.id)
   end
 
   # PATCH/PUT /malls/1
@@ -87,6 +90,6 @@ class MallsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def mall_params
-    params.require(:mall).permit(:name, :mallpicture, :address, :parking_space, :description, :email, :phone_no, :spaces, :opening_time, :closing_time, :rooms_status, mall_attachments_attributes: [:id, :mall_id, :avatar])
+    params.require(:mall).permit(:name, :mallpicture, :address, :total_rooms, :parking_space, :description, :email, :phone_no, :opening_time, :closing_time, :rooms_status, mall_attachments_attributes: %i[id mall_id avatar])
   end
 end

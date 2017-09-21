@@ -1,13 +1,30 @@
-.header {
+.mall_header {
   text-align: center;
   padding: 100px;
-
+  height: 100vh;
+  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url('https://static.seekingalpha.com/uploads/2016/9/1723581_14731247754232_rId8.png')no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  -webkit-filter: contrast(90%);
   h1 {
-    font-size: 70px;
+    font-size: 150px;
+    color:white;
+  }
+  h4{
+    text-decoration: underline;
+    color:white;
+    font-size: 25px;
   }
 
-  p {
-    font-size: 16px;
+  p a{
+    color:white;
+    font-size: 20px;
+  }
+  .fa-external-link{
+    color:white;
+    font-size:16px;
   }
 }
 

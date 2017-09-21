@@ -1,13 +1,15 @@
 <script src="//maps.google.com/maps/api/js?key=AIzaSyDoCKNEr65ZO2JvpuIbofP7cn8p3pqFJP4"></script>
 <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
-
-
-<% @categories.each do |category| %>
-  <%= link_to category.name, category %> <br>
-<% end %>
-
-<div class="header">
+<div class="mall_header">
   <h1 class="animated bounceInDown">E-mall</h1>
+  <h4>Categories</h4>
+  <% @categories.each do |category| %>
+  <p>
+    <%= link_to category.name, category %>
+    <i class="fa fa-external-link" aria-hidden="true"></i>
+    <br>
+  </p>
+  <% end %>
 </div>
 
 <div class="malls">
@@ -29,7 +31,8 @@
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Green_pog.svg/1024px-Green_pog.svg.png" class="img-responsive" style="height:30px; width:30px;">Open
     </div>
     <%=link_to mall_events_path(mall) do%>
-      <%=mall.events.count%> Events happening
+    <%=mall.events.count%>
+    Events happening
     <%end%>
     <%else%>
     <div>
@@ -45,14 +48,15 @@
     <%end%>
 
     <%if mall.rooms_status == true%>
-      <%=mall.rooms.count%> stores present.
+    <%=mall.rooms.count%>
+    stores present.
     <%else%>
-      <h3>fully occupied</h3>
+    <h3>fully occupied</h3>
     <%end%>
     <br>
 
     <%=link_to mall_path(mall) do%>
-      <button class="btn btn-primary">View</button>
+    <button class="btn btn-primary">View</button>
     <%end%>
 
     <%#= link_to 'Destroy', mall, method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -66,7 +70,7 @@
 
 <br>
 
- <div class="map_box">
+<div class="map_box">
   <div id="map" class="img-responsive"></div>
 </div>
 <!-- <script type="text/javascript">
