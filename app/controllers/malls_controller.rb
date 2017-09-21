@@ -18,14 +18,14 @@ class MallsController < ApplicationController
   # GET /malls/1
   # GET /malls/1.json
   def show
-    @mall = Mall.find(params[:id])
     @mall_attachments = @mall.mall_attachments.all
-    @hash = Gmaps4rails.build_markers(@mall) do |mall, marker|
+    @hash = Gmaps4rails.build_markers(@mall) do |mall, marker|  
       marker.lat mall.latitude
       marker.lng mall.longitude
     end
     @rooms = @mall.rooms
     @free = ((@mall.spaces).to_i - (@mall.rooms.count).to_i)
+    @reviews = @mall.reviews                                                 
   end
 
   # GET /malls/new

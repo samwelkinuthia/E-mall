@@ -11,5 +11,6 @@ class Mall < ApplicationRecord
   accepts_nested_attributes_for :mall_attachments
   has_many :events
   has_many :features
+  has_many :reviews
 
 end
