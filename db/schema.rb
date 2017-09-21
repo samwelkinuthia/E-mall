@@ -66,8 +66,8 @@ ActiveRecord::Schema.define(version: 20170914130656) do
     t.boolean "parking_space"
     t.text "description"
     t.text "email"
+    t.integer "total_rooms"
     t.bigint "phone_no"
-    t.integer "spaces"
     t.time "opening_time"
     t.time "closing_time"
     t.boolean "rooms_status"
@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 20170914130656) do
     t.string "facebook"
     t.string "instagram"
     t.string "twitter"
+    t.integer "rent"
     t.boolean "occupied", default: false
     t.bigint "mall_id"
     t.datetime "created_at", null: false

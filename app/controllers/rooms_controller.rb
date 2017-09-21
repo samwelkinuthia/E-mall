@@ -1,9 +1,8 @@
 class RoomsController < ApplicationController
-
   load_and_authorize_resource
-  skip_authorize_resource :only => [:index, :show]
+  skip_authorize_resource only: %i[index show]
 
-  before_action :set_room, only: [:show, :edit, :update, :destroy]
+  before_action :set_room, only: %i[show edit update destroy]
 
   # GET /rooms
   # GET /rooms.json
@@ -27,6 +26,7 @@ class RoomsController < ApplicationController
 
   # GET /rooms/1/edit
   def edit
+    @mall = Mall.find(params[:mall_id])
   end
 
   # POST /rooms
@@ -46,15 +46,17 @@ class RoomsController < ApplicationController
     end
   end
 
+
+
   # PATCH/PUT /rooms/1
   # PATCH/PUT /rooms/1.json
   def update
     respond_to do |format|
       if @room.update(room_params)
-        format.html { redirect_to @room, notice: 'Room was successfully updated.' }
+        format.html { redirect_to mall_rooms_path, notice: 'Room was successfully updated.' }
         format.json { render :show, status: :ok, location: @room }
       else
-        format.html { render :edit }
+        format.html { render :edit, notice: "Failed" }
         format.json { render json: @room.errors, status: :unprocessable_entity }
       end
     end
@@ -71,13 +73,14 @@ class RoomsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_room
-      @room = Room.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def room_params
-      params.require(:room).permit(:name, :description, :room_number, :area, :wing, :floor, :opening_time, :closing_time, :phone, :email, :facebook, :instagram, :twitter, :occupied, :mall_id, :category_id, :storeimage, :storeavatar, :website)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_room
+    @room = Room.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def room_params
+    params.require(:room).permit(:name, :description, :room_number, :area, :wing, :floor, :opening_time, :closing_time, :phone, :email, :facebook, :instagram, :twitter, :occupied, :mall_id, :category_id, :storeimage, :storeavatar, :website)
+  end
 end

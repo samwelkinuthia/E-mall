@@ -13,9 +13,15 @@
 <% end %>
 
 <div class="field">
+  <%=form.label :total_rooms%>
+  <%=form.number_field :total_rooms%>
+</div>
+
+<div class="field">
   <%= form.label :mallpicture%>
   <%= form.file_field :mallpicture%>
 </div>
+
 
 <div class="field">
   <%= form.label :name %>
@@ -50,11 +56,6 @@
 <div class="field">
   <%= form.label :phone_no %>
   <%= form.number_field :phone_no, id: :mall_phone_no %>
-</div>
-
-<div class="field">
-  <%= form.label :spaces %>
-  <%= form.number_field :spaces, id: :mall_spaces %>
 </div>
 
 <div class="field">
