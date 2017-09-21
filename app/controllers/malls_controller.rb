@@ -19,6 +19,8 @@ class MallsController < ApplicationController
   # GET /malls/1.json
   def show
     @mall = Mall.find(params[:id])
+    @event = Event.find_by(id: params[:mall_id])
+    @events = @mall.events
     @mall_attachments = @mall.mall_attachments.all
     @hash = Gmaps4rails.build_markers(@mall) do |mall, marker|
       marker.lat mall.latitude

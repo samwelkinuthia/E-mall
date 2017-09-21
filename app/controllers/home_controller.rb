@@ -1,6 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @malls = Mall.all
-    @result = request.location.to_yaml
+    @categories = Category.all
   end
 end

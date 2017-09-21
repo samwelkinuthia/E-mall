@@ -41,6 +41,11 @@
   </div>
 </div>
 
+<%@events.each do |event|%>
+  <h1><%=event.name%></h1>
+<%end%>
+
+
 <div class="mall_images">
   <div class="row">
     <%if @mall_attachments.any?%>
