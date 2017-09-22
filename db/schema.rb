@@ -90,20 +90,20 @@ ActiveRecord::Schema.define(version: 20170914130656) do
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.integer "room_number"
-    t.float "area"
-    t.string "wing"
-    t.integer "floor"
-    t.time "opening_time"
-    t.time "closing_time"
-    t.bigint "phone"
-    t.string "email"
-    t.string "facebook"
-    t.string "instagram"
-    t.string "twitter"
-    t.integer "rent"
+    t.string "name", default: "room name"
+    t.text "description", default: "room description"
+    t.integer "room_number", default: 0
+    t.float "area", default: 300.0
+    t.string "wing", default: "Wing"
+    t.integer "floor", default: 1
+    t.time "opening_time", default: "2000-01-01 09:12:50"
+    t.time "closing_time", default: "2000-01-01 09:12:50"
+    t.bigint "phone", default: 0
+    t.string "email", default: "room@gmail.com"
+    t.string "facebook", default: "facebook.com"
+    t.string "instagram", default: "room.instagram.com"
+    t.string "twitter", default: "room.twitter.com"
+    t.integer "rent", default: 0
     t.boolean "occupied", default: false
     t.bigint "mall_id"
     t.datetime "created_at", null: false

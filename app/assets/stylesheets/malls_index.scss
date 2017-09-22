@@ -1,77 +1,98 @@
 .mall_header {
-  text-align: center;
-  padding: 100px;
-  height: 100vh;
-  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url('https://static.seekingalpha.com/uploads/2016/9/1723581_14731247754232_rId8.png')no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  -webkit-filter: contrast(90%);
-  h1 {
-    font-size: 150px;
-    color:white;
-  }
-  h4{
-    text-decoration: underline;
-    color:white;
-    font-size: 25px;
-  }
+    text-align: center;
+    padding: 100px;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://static.seekingalpha.com/uploads/2016/9/1723581_14731247754232_rId8.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    -webkit-filter: contrast(90%);
 
-  p a{
-    color:white;
-    font-size: 20px;
-  }
-  .fa-external-link{
-    color:white;
-    font-size:16px;
-  }
+    h1 {
+        font-size: 150px;
+        color: white;
+    }
+
+    h4 {
+        text-decoration: underline;
+        color: white;
+        font-size: 25px;
+    }
+
+    p a {
+        color: white;
+        font-size: 20px;
+    }
+
+    .fa-external-link {
+        color: white;
+        font-size: 16px;
+    }
 }
 
-.malls{
-  .malls_title{
-    text-align: center;
-  }
+.malls {
+    .malls_title {
+        background-image: url("https://www.walldevil.com/wallpapers/a77/background-blue-dark-walls.jpg");
+        color: white;
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 60px;
+        font-family: 'Fira Sans', sans-serif;
+    }
 }
 
 .malls_loop {
-  padding:30px;
-  border:2px solid #f2f2f2;
-  .left {
-    text-align: center;
-    padding: 20px;
-    font-size: 20px;
-  }
+    padding: 20px 20px;
+    border-top: 1px solid #0E2945;
+    border-bottom: 1px solid #0E2945;
 
-  .right {
-    text-align: left;
-    padding: 20px;
-    font-size: 20px;
-    .view_btn{
-      border:2px solid black;
-      padding: 10px;
-      border-radius: 5px;
-      text-align: center;
-      text-decoration: none;
-      color:#ff571a;
+    .left {
+        text-align: center;
+        padding: 20px;
+        font-size: 20px;
     }
-  }
-}
-.map_box{
-  text-align: center;
-  #map{
-    height:500px;
-    width:100%;
-    background: fixed center fixed;
-  }
+
+    .right {
+        text-align: left;
+        padding: 20px;
+        font-size: 20px;
+        text-align: center;
+
+        .view_btn {
+            border: 2px solid black;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            color: #ff571a;
+        }
+    }
 }
 
-#status_btn{
-  width:50%;
-  font-size: 16px;
+.mall-details {
+    font-family: 'Fira Sans', sans-serif;
 }
 
-.store_image{
-  height:300px;
-  width:400px;
+.map_box {
+    text-align: center;
+
+    #map {
+        height: 500px;
+        width: 100%;
+        background: fixed center fixed;
+    }
+}
+
+#status_btn {
+    width: 50%;
+    font-size: 16px;
+}
+
+.store_image {
+    height: 300px;
+    width: 400px;
 }
