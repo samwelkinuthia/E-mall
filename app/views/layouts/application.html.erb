@@ -12,7 +12,6 @@
   <body>
     <%= render "shared/navbar" %>
     <%= yield %>
-    <%= render "shared/footer" %>
     <% unless flash.empty? %>
     <script type="text/javascript">
       <% flash.each do |f| %>

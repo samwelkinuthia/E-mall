@@ -17,8 +17,12 @@
 //= require toastr
 //= require turbolinks
 //= require underscore
-//= require navbar
 //= require gmaps/google
-//= require home
+//CUSTOM JAVASCRIPTS
+//=require home
+//= require navbar
 //= require_tree .
 
+$(document).ready(function(){
+  
+});

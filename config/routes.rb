@@ -2,18 +2,25 @@ Rails.application.routes.draw do
   get 'home/index'
 
   resources :reviews
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  devise_for :users
+  
+  root "home#index"
   get "/pages/:page" => "pages#show"
   match '/contacts',     to: 'contacts#new',             via: 'get'
+
   resources "contacts", only: [:new, :create]
+
+
   resources :contacts
+
   resources :malls do
     resources :events
     resources :features
   end
+
+
   resources :categories
-  root "malls#index"
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users
 
   resources :malls do
     resources :rooms do

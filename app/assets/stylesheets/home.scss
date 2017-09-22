@@ -1,67 +1,50 @@
+<<<<<<< HEAD
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-html,
-body,
-header,
-#intro {
-    height: 100%;
+@import "sidenav";
+
+.burger_icon {
+  cursor: pointer;
+  color: #0e2945;
+  margin: 30px;
+  left: 0;
+  position: absolute;
+  .navicon {
+    font-size: 70px;
+  }
 }
 
-#intro {
-    background: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full%20page/img%20%283%29.jpg")no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+.fullscreen-bg__video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  background: url('https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider2.jpg') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+  position: absolute;
 }
- // flipping cards for team 
 
- body{
-  padding-top:50px;
-  background: #555;
+.mall_button{
+  margin-top:10%;
+  text-align: center;
+  h1{
+    font-size:100px;
+  }
+  text-align: center;
+  button{
+    border:0px solid red;
+    padding:30px;
+    font-size: 17px;
+    color:white;
+    border-radius:4px;
+    background-color:#0E2945;
+  }
 }
-.flip {
-  -webkit-perspective: 800;   
-          perspective: 800;
-        position: relative;
-        text-align: center;
-}
-.flip .card.flipped {
-  -webkit-transform: rotatey(-180deg);
-          transform: rotatey(-180deg);
-}
-.flip .card {
-    width: 270px;
-    height: 178px;
-    -webkit-transform-style: preserve-3d;
-    -webkit-transition: 0.5s;
-    transform-style: preserve-3d;
-    transition: 0.5s;
-    background-color: #fff;
-   
-}
-.flip .card .face {
-  -webkit-backface-visibility: hidden ;
-    backface-visibility: hidden ;
-   z-index: 2;
-}
-.flip .card .front {
-   position: absolute;
-   width: 270px;
-   z-index: 1;
-}
-.flip .card .img {
-   position: relaitve;
-   width: 270px;
-   height: 178px;
-   z-index: 1;
-   border: 2px solid #000;
-}
-.flip .card .back {
-  padding-top: 10%;
-  -webkit-transform: rotatey(-180deg);
-          transform: rotatey(-180deg);
-}
-  .inner{margin:0px !important;}
