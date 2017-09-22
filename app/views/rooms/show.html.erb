@@ -1,24 +1,28 @@
-<div class="container-fluid room">
-  <div class="row room_header">
-    <h1>Welcome to 
-      <span><%=@room.name%></span>
-    </h1>
-  </div>
+<div class="row room_header">
+  <h1>Welcome to
+    <span><%=@room.name%></span>
+  </h1>
+  <%= image_tag @room.storeimage_url.to_s, class: "room_image img-responsive"%>
   <div class="row room_description">
     <p><%= @room.description %></p>
   </div>
+</div>
+<div class="container-fluid room">
   <div class="container">
     <div class="row room_products">
       <h1>Our Products</h1>
       <%@products.each do |product|%>
       <div class="col-md-4 col-xs-12 product_tile">
-        <img src="<%=product.image%>" class="img-responsive product_image">
-        <h3><%=product.name%></h3>
-        <h5><%=product.price%>
-          Ksh</h5>
-        <%=link_to mall_room_product_path(@mall, @room,product) do%>
-        <button class="btn btn-success">View</button>
-        <%end%>
+        <div class="product">
+          <div class="product_image">
+            <img src="<%=product.image%>" class="img-responsive product_image">
+          </div>
+          <div class="product_body">
+            <h3><%=product.name%></h3>
+            <h5><%=product.price%>
+              Ksh</h5>
+          </div>
+        </div>
       </div>
       <%end%>
     </div>
@@ -49,7 +53,7 @@
       <%elsif @room.floor >= 4%>
       <h5><%=@room.floor%>th</h5>
       <%end%>
-      of
+      Floor of
       <%=@room.mall.name%>,
       <%=@room.wing%>
       wing in room number
@@ -57,11 +61,13 @@
     </p>
   </div>
 
-  <div class="container">
+  <div class="container upload">
+    <h1>Upload Products</h1>
     <%=form_tag import_mall_room_products_path(@mall, @room), multipart: true do%>
     <div class="well">
       <p>You can upload your product spreadsheet file directly</p>
-      <%= file_field_tag :file, required: true%> <br>
+      <%= file_field_tag :file, required: true%>
+      <br>
 
       <%=submit_tag "Upload", class: "btn btn-default"%>
       <br>
