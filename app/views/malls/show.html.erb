@@ -15,7 +15,7 @@
     <i class="fa fa-envelope-o contact_email" aria-hidden="true"></i>
     </p> -->
 </div>
-<br><br>
+<br><hr>
  
 
 
@@ -23,7 +23,7 @@
     <% @rooms.each do |room| %>
     <!-- First column -->
      <div class="col-sm-4 mall_room">
-     <div class="card animated fadeInLeft">
+     <div class="card animated fadeInLeft text-center">
        
         <%if room.name == ""%>
         <img class="card-img-top img-responsive" src="https://previews.123rf.com/images/carmenbobo/carmenbobo1504/carmenbobo150400069/38945966-Rubber-stamp-with-word-vacant-inside-vector-illustration-Stock-Vector.jpg"  style="height:200px; width:300px;" alt="card image">
@@ -40,11 +40,12 @@
         <button class="btn btn-default">Check it Out</button>
         <%end%>
       </div>
+        <br>
      </div>
     </div>  
     <% end %>
   </div>
-  <br>
+  <hr>
  
 
 
