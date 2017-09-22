@@ -3,91 +3,48 @@
 
 <div class="header_show">
   <h1><%=@mall.name%></h1>
-  <p><%=@mall.description%></p>
+  <!-- <p><%#=@mall.description%></p> -->
   <p>Open between
     <%= @mall.opening_time.strftime('%H:%M:%p') %>
     and
     <%= @mall.closing_time.strftime('%H:%M:%p') %></p>
-  <p>
+  <!-- <p>
     <i class="fa fa-phone contact_phone" aria-hidden="true"></i>
     <%=@mall.phone_no%></p>
   <p>
     <i class="fa fa-envelope-o contact_email" aria-hidden="true"></i>
-    <%=@mall.email%></p>
+    <%=@mall.email%></p> -->
 </div>
+<br><br>
  
 
-<% if @reviews.blank? %>
-<h3>No reviews yet,Would you like to add the first!</h3>
-<%= link_to "Add Review", new_review_path(@mall), class: "btn btn-success" %>
-<% else %>
-<% @reviews.each do |review| %> 
-<div></div>
+<%# if @reviews.blank? %>
+<!-- <h3>No reviews yet,Would you like to add the first!</h3>
+ --><%#= link_to "Add Review", new_review_path(@mall), class: "btn btn-success" %>
+<%#else %>
+<%#@reviews.each do |review| %> 
+<!-- <div></div>
     <div class="reviews">  
-      <div class="star-rating" data-score=<%= review.rating %> >
-      </div>
-      <p><%= review.content %></p>
-    </div>
-  <% end %>
- <% end %>
-
-<div class="container">
-  <div class="col-md-6">
-    <div class="container">
-      <h3>Add your Store.</h3>
-      <%=render 'rooms/new'%>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="row">
-      <h3>Add events at
-        <%=@mall.name%></h3>
-      <%=render 'events/form'%>
-    </div>
-    <div class="row">
-      <h3>Add
-        <%=@mall.name%>
-        features</h3>
-      <%= render 'features/form'%>
-    </div>    
-    <!-- <div class="row">
-      <h3>Add
-        <%=@mall.name%>
-        Reviews</h3>
-      <%#= render 'reviews/form'%>
+      <div class="star-rating" data-score=<%#= review.rating %> >
+      </div> -->
+      <!-- <p><%#= review.content %></p>
     </div> -->
-  </div>
-</div>
+  <%# #end %>
+ <%# end %>
 
-<div class="mall_images">
   <div class="row">
-    <%if @mall_attachments.any?%>
-    <h1>Sneak Peek</h1>
-    <%@mall_attachments.each do |m|%>
-    <div class="col-md-4 col-xs-12">
-      <%=image_tag m.avatar_url, class: "img-responsive mall_attachment"%>
-    </div>
-    <%end%>
-    <%else%>
-    <h1>add images when adding mall</h1>
-    <%end%>
-  </div>
-</div>
-
-<%= link_to 'Edit', edit_mall_path(@mall) %>
-<%#= link_to 'Back', malls_path %>
-
-<div class="container">
-  <div class="row mall_rooms">
     <% @rooms.each do |room| %>
-    <div class="col-md-4 col-xs-12 mall_room">
-      <%if room.name == ""%>
-      <img src="https://previews.123rf.com/images/carmenbobo/carmenbobo1504/carmenbobo150400069/38945966-Rubber-stamp-with-word-vacant-inside-vector-illustration-Stock-Vector.jpg" class="img-responsive" style="height:200px; width:300px;" alt="">
-      <%else%>
-      <%= image_tag room.storeimage_url.to_s, class: "store_image img-responsive"%>
-      <%end%>
-      <div class="mall_room_name">
-        <h1>
+    <!-- First column -->
+     <div class="col-sm-4 mall_room">
+     <div class="card animated fadeInLeft">
+       
+        <%if room.name == ""%>
+        <img class="card-img-top img-responsive" src="https://previews.123rf.com/images/carmenbobo/carmenbobo1504/carmenbobo150400069/38945966-Rubber-stamp-with-word-vacant-inside-vector-illustration-Stock-Vector.jpg"  style="height:200px; width:300px;" alt="card image">
+        <%else%>
+        <%= image_tag room.storeimage_url.to_s, class: "store_image img-responsive"%>
+        <%end%>
+        <div class="card-block">
+        <h1 class="card-title">
           <%= room.name %>
         </h1>
       </div>
@@ -96,15 +53,89 @@
         <button class="btn btn-default">Check it Out</button>
         <%end%>
       </div>
-      <%= link_to 'Edit', edit_mall_room_path(@mall,room) %>
-    </div>
+     </div>
+    </div>  
     <% end %>
   </div>
+  <br>
+ 
+
+
+<!-- 
+<div class="container">
+  <div class="col-md-6">
+    <div class="container">
+      <h3>Add your Store.</h3>
+      <%#=render 'rooms/new'%>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <h3>Add events at
+        <%#render 'events/form'%>
+    </div>
+    <div class="row">
+      <h3>Add
+        <%#@mall.name%>
+        features</h3>
+      <%#= render 'features/form'%>
+    </div>    
+    <!-- <div class="row">
+      <h3>Add
+        <%#=@mall.name%>
+        Reviews</h3>
+      <%#= render 'reviews/form'%>
+    </div> -->
+  <!-- </div>
 </div>
+ -->
+<!-- <div class="mall_images">
+  <div class="row">
+    <%#if @mall_attachments.any?%>
+    <h1>Sneak Peek</h1>
+    <%#@mall_attachments.each do |m|%>
+    <div class="col-md-4 col-xs-12">
+      <%#=image_tag m.avatar_url, class: "img-responsive mall_attachment"%>
+    </div>
+    <%#end%>
+    <%#else%>
+    <h1>add images when adding mall</h1>
+    <%#end%>
+  </div>
+</div>
+
+<%#= link_to 'Edit', edit_mall_path(@mall) %>
+<%#= link_to 'Back', malls_path %>
+
+<div class="container">
+  <div class="row mall_rooms">
+    <%# @rooms.each do |room| %>
+    <div class="col-md-4 col-xs-12 mall_room">
+      <%#if room.name == ""%>
+      <img src="https://previews.123rf.com/images/carmenbobo/carmenbobo1504/carmenbobo150400069/38945966-Rubber-stamp-with-word-vacant-inside-vector-illustration-Stock-Vector.jpg" class="img-responsive" style="height:200px; width:300px;" alt="">
+      <%#else%>
+      <%#= image_tag room.storeimage_url.to_s, class: "store_image img-responsive"%>
+      <%#end%>
+      <div class="mall_room_name">
+        <h1>
+          <%#= room.name %>
+        </h1>
+      </div>
+      <div class="mall_room_link">
+        <%#= link_to mall_room_path(room.mall_id,room) do%>
+        <button class="btn btn-default">Check it Out</button>
+        <%#end%>
+      </div>
+      <%#= link_to 'Edit', edit_mall_room_path(@mall,room) %>
+    </div>
+    <%# end %>
+  </div>
+</div>  -->
 
 <div class="map">
   <div id="map" class="map"></div>
 </div>
+
 
 <script type="text/javascript">
   handler = Gmaps.build('Google');
