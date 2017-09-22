@@ -1,7 +1,10 @@
 <script src="//maps.google.com/maps/api/js?key=AIzaSyDoCKNEr65ZO2JvpuIbofP7cn8p3pqFJP4"></script>
 <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
 <!--MALLS-->
-<div class="malls">
+<!-- <div class="malls">
+</div> -->
+
+<div class="row mall_index_top">
   <div class="malls_title">
     <h1 class="animated bounceInDown">MALLS</h1>
   </div>
@@ -10,14 +13,13 @@
 <% @malls.each do |mall| %>
 <div class="row malls_loop">
   <!--MALL IMAGE-->
-  <div class="col-md-7 col-xs-12 left animated fadeInLeft">
-    <%= image_tag mall.mallpicture_url.to_s, class: "img-responsive", style:"width:100%;height:450px;"%>
+  <div class="col-md-7 col-xs-12 left animated fadeInLeft mall_image">
+    <%= image_tag mall.mallpicture_url.to_s, class: "img-responsive", id: "mall_image"%>
   </div>
 
 <!--MALL DETAILS-->
   <div class="col-md-5 col-xs-12 right animated fadeInRight mall-details">
     <h1><%=mall.name%></h1>
-    <hr style="font-size: 50px; color: #0E2945;height: 20px;border-top: 2px solid #0E2945">
     <%if ((mall.opening_time).strftime('%H:%M')..(mall.closing_time).strftime('%H:%M')).include?Time.now.strftime('%H:%M')%>
     <div>
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Green_pog.svg/1024px-Green_pog.svg.png" class="img-responsive" style="height:30px; width:30px;margin: auto;">&nbsp;OPEN
