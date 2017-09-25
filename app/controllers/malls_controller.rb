@@ -13,6 +13,11 @@ class MallsController < ApplicationController
       marker.lat mall.latitude
       marker.lng mall.longitude
     end
+    if  params[:search].present?
+      @malls = Mall.near(params[:search])
+    else
+      @malls = Mall.all
+    end
   end
 
   # GET /malls/1
