@@ -1,0 +1,19 @@
+.events_header {
+  text-align: center;
+  padding: 90px;
+  color: white;
+
+  h1 {
+    font-size: 70px;
+    font-weight: 900;
+  }
+  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('http://slounge.ca/wp-content/uploads/2012/02/studio-lounge-wallpaper-3.jpg')no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  -webkit-filter: contrast(90%);
+}
+.events{
+  margin:10px;
+}
