@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
-  
+
   root "home#index"
 
   get "/pages/:page" => "pages#show"
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
       end
     end
   end
-  
+
   namespace :api, defaults:{format: 'json'} do
     namespace :v1 do
       resources :malls do
