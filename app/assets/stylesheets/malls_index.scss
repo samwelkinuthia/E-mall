@@ -1,56 +1,60 @@
-.mall_header {
+.mall_index_top {
     text-align: center;
-    padding: 100px;
-    height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://static.seekingalpha.com/uploads/2016/9/1723581_14731247754232_rId8.png") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    -webkit-filter: contrast(90%);
-
-    h1 {
-        font-size: 150px;
-        color: white;
-    }
-
-    h4 {
-        text-decoration: underline;
-        color: white;
-        font-size: 25px;
-    }
-
-    p a {
-        color: white;
-        font-size: 20px;
-    }
-
-    .fa-external-link {
-        color: white;
-        font-size: 16px;
-    }
-}
-
-.malls {
-    .malls_title {
-        background-image: url("https://www.walldevil.com/wallpapers/a77/background-blue-dark-walls.jpg");
-        color: white;
-        padding: 30px 20px;
-        text-align: center;
-    }
+    padding: 10px;
+    background-image: url("https://www.walldevil.com/wallpapers/a77/background-blue-dark-walls.jpg");
 
     h1 {
         font-size: 60px;
-        font-family: 'Fira Sans', sans-serif;
+        color: white;
     }
 }
 
+#mall_image {
+    border: 0px solid red;
+    border-radius: 5px;
+    height: 400px;
+    width: 100%;
+}
+
+.mall_image {
+    position: relative;
+}
+
+.mall_image:after,
+.mall_image:before {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    bottom: 25px;
+    left: 10px;
+    width: 50%;
+    top: 80%;
+    max-width: 300px;
+    background: #777;
+    -webkit-box-shadow: 0 35px 20px #777;
+    -moz-box-shadow: 0 35px 20px #777;
+    box-shadow: 0 35px 20px #777;
+    -webkit-transform: rotate(-8deg);
+    -moz-transform: rotate(-8deg);
+    -o-transform: rotate(-8deg);
+    -ms-transform: rotate(-8deg);
+    transform: rotate(-8deg);
+}
+
+.mall_image:after {
+    -webkit-transform: rotate(8deg);
+    -moz-transform: rotate(8deg);
+    -o-transform: rotate(8deg);
+    -ms-transform: rotate(8deg);
+    transform: rotate(8deg);
+    right: 10px;
+    left: auto;
+}
+
 .malls_loop {
-    padding: 20px 20px;
-    border-top: 1px solid #0E2945;
-    border-bottom: 1px solid #0E2945;
-    color: black;
+    margin: 10px;
     background-image: url("http://www.designbolts.com/wp-content/uploads/2012/12/White-Gradient-Squares-Seamless-Patterns-For-Website-Backgrounds.jpg");
+    padding: 50px;
 
     .left {
         text-align: center;
@@ -81,6 +85,7 @@
 
 .map_box {
     text-align: center;
+    width: 100%;
 
     #map {
         height: 500px;

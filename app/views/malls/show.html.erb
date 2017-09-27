@@ -1,7 +1,7 @@
 <script src="//maps.google.com/maps/api/js?key=AIzaSyDoCKNEr65ZO2JvpuIbofP7cn8p3pqFJP4"></script>
 <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
 
-<div class="header_show">
+<div class="container-fluid header_show">
   <h1><%=@mall.name%></h1>
   <p><%=@mall.description%></p>
   <p>Open between
@@ -14,37 +14,39 @@
   <p>
     <i class="fa fa-envelope-o contact_email" aria-hidden="true"></i>
     <%=@mall.email%></p>
-    <h5><u>Closest malls to <%=@mall.name%></u></h5>
+  <h5>
+    <u>Closest malls to
+      <%=@mall.name%></u>
+  </h5>
   <% for mall in @mall.nearbys(10)%>
-    <li><%=link_to mall.name, mall%>(<%= mall.distance.round(2)%>miles)</li>
+  <li><%=link_to mall.name, mall%>(<%= mall.distance.round(2)%>miles)</li>
   <%end%>
 </div>
-<div class="container">
+<!-- <div class="container">
   <div class="col-md-6">
     <div class="container">
       <h3>Add your Store.</h3>
-      <%=render 'rooms/new'%>
+      <%#=render 'rooms/new'%>
     </div>
   </div>
   <div class="col-md-6">
     <div class="row">
       <h3>Add events at
         <%=@mall.name%></h3>
-      <%=render 'events/form'%>
+      <%#=render 'events/form'%>
     </div>
     <div class="row">
       <h3>Add
         <%=@mall.name%>
         features</h3>
-      <%= render 'features/form'%>
+      <%#= render 'features/form'%>
     </div>
   </div>
-</div>
+</div> -->
 
 <%@events.each do |event|%>
-  <h1><%=event.name%></h1>
+<h1><%=event.name%></h1>
 <%end%>
-
 
 <div class="mall_images">
   <div class="row">
@@ -61,14 +63,17 @@
   </div>
 </div>
 
-<%= link_to 'Edit', edit_mall_path(@mall) %>
+<%#= link_to 'Edit', edit_mall_path(@mall) %>
 <%#= link_to 'Back', malls_path %>
 
 <div class="container">
   <div class="row mall_rooms">
+    <div class="page-header">
+      <h1>Available Stores</h1>
+    </div>
     <% @rooms.each do |room| %>
     <div class="col-md-4 col-xs-12 mall_room">
-      <%if room.name == ""%>
+      <%if room.occupied == false%>
       <img src="https://previews.123rf.com/images/carmenbobo/carmenbobo1504/carmenbobo150400069/38945966-Rubber-stamp-with-word-vacant-inside-vector-illustration-Stock-Vector.jpg" class="img-responsive" style="height:200px; width:300px;" alt="">
       <%else%>
       <%= image_tag room.storeimage_url.to_s, class: "store_image img-responsive"%>
@@ -79,11 +84,14 @@
         </h1>
       </div>
       <div class="mall_room_link">
+        <%if room.occupied == false%>
+        <%= link_to 'Edit', edit_mall_room_path(@mall,room) %>
+        <%else%>
         <%= link_to mall_room_path(room.mall_id,room) do%>
         <button class="btn btn-default">Check it Out</button>
         <%end%>
+        <%end%>
       </div>
-      <%= link_to 'Edit', edit_mall_room_path(@mall,room) %>
     </div>
     <% end %>
   </div>
