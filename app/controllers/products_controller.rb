@@ -35,7 +35,7 @@ class ProductsController < ApplicationController
     @product = @room.products.new(product_params)
     respond_to do |format|
       if @product.save
-        format.html { redirect_to mall_room_path(@mall, @room), notice: 'Product was successfully created.' }
+        format.html { redirect_to mall_room_path(@room), notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
@@ -71,7 +71,7 @@ class ProductsController < ApplicationController
   def import
     @room = Room.find(params[:room_id])
     Product.import(@room, params[:file])
-    redirect_to mall_room_products_path, notice: "successfully uploaded your products"
+    redirect_to mall_room_path(@room.mall_id, @room), notice: "successfully uploaded your products"
   end
 
   private
