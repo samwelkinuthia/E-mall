@@ -32,7 +32,9 @@ Rails.application.routes.draw do
   namespace :api, defaults:{format: 'json'} do
     namespace :v1 do
       resources :malls do
-        resources :rooms
+        resources :rooms do
+          resources :products
+        end
       end
     end
   end
