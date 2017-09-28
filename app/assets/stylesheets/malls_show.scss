@@ -1,8 +1,8 @@
 .header_show {
-  padding: 70px;
+  padding: 100px;
   color: white;
+  width: 100%;
   text-align: center;
-  background-image: url("https://www.walldevil.com/wallpapers/a77/background-blue-dark-walls.jpg");
 }
 
 #map {
@@ -37,10 +37,12 @@
     .store_image {
       width: 100%;
     }
+
     .mall_room_name {
       border: 2px solid #f2f2f2;
       padding: 3px;
     }
+
     button {
       margin: 4px;
     }

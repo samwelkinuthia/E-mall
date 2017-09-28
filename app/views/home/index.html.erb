@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" id="main">
   <!-- BACKGROUND VIDEO -->
   <%=video_tag("mall.mp4",loop: true, autoplay: true, muted: true, class:"fullscreen-bg__video")%>
 
@@ -9,7 +9,7 @@
   </span>
 
   <div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><h1>&times;</h1></a>
     <h1>What are you looking for?</h1>
     <%@categories.each do |category|%>
     <div class="categories">
