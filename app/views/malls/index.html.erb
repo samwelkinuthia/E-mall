@@ -8,6 +8,12 @@
   <div class="malls_title">
     <h1 class="animated bounceInDown">MALLS</h1>
   </div>
+  <div class="search">
+    <%= form_tag malls_path, :method => :get do%>
+    <%=text_field_tag :search, params[:search]%>
+    <%=submit_tag "Search", :name => :nil%>
+    <%end%>
+  </div>
 </div>
 <!--MALLS LIST-->
 <% @malls.each do |mall| %>
@@ -17,7 +23,7 @@
     <%= image_tag mall.mallpicture_url.to_s, class: "img-responsive", id: "mall_image"%>
   </div>
 
-<!--MALL DETAILS-->
+  <!--MALL DETAILS-->
   <div class="col-md-5 col-xs-12 right animated fadeInRight mall-details">
     <h1><%=mall.name%></h1>
     <%if ((mall.opening_time).strftime('%H:%M')..(mall.closing_time).strftime('%H:%M')).include?Time.now.strftime('%H:%M')%>
@@ -26,7 +32,8 @@
     </div>
     <br>
     <%=link_to mall_events_path(mall) do%>
-    <i class="fa fa-calendar" aria-hidden="true">&nbsp;Events: </i><%=mall.events.count%>
+    <i class="fa fa-calendar" aria-hidden="true">&nbsp;Events:
+    </i><%=mall.events.count%>
     <br>
     <%end%>
     <%else%>
@@ -36,20 +43,29 @@
     <%end%>
 
     <%if mall.parking_space == true%>
-    <p><i class="fa fa-car" aria-hidden="true"></i> Available Parking </p>
+    <p>
+      <i class="fa fa-car" aria-hidden="true"></i>
+      Available Parking
+    </p>
     <%else%>
-    <p><i class="fa fa-car" aria-hidden="true"></i> No Parking Provided</p>
+    <p>
+      <i class="fa fa-car" aria-hidden="true"></i>
+      No Parking Provided</p>
     <%end%>
 
     <%if mall.rooms_status == true%>
-    <i class="fa fa-home" aria-hidden="true"></i> <%=mall.rooms.count%> Stores present
+    <i class="fa fa-home" aria-hidden="true"></i>
+    <%=mall.rooms.count%>
+    Stores present
     <%else%>
     <h3>Fully occupied</h3>
     <%end%>
     <br>
     <br>
     <%=link_to mall_path(mall) do%>
-    <button class="btn btn-primary" style="padding: 15px 40px; background-color: #0E2945"><h4>View Mall</h4></button>
+    <button class="btn btn-primary" style="padding: 15px 40px; background-color: #0E2945">
+      <h4>View Mall</h4>
+    </button>
     <%end%>
   </div>
 </div>
@@ -62,15 +78,18 @@
 </div>
 
 <script type="text/javascript">
-  handler = Gmaps.build('Google');
-  handler.buildMap({
-    provider: {},
-    internal: {
-      id: 'map'
-    }
-  }, function () {
-    markers = handler.addMarkers(<%=raw @hash.to_json %>);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
+
+  $(document).ready(function () {
+    handler = Gmaps.build('Google');
+    handler.buildMap({
+      provider: {},
+      internal: {
+        id: 'map'
+      }
+    }, function () {
+      markers = handler.addMarkers(<%=raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    });
   });
 </script>

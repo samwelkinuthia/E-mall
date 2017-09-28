@@ -22,8 +22,5 @@
 //CUSTOM JAVASCRIPTS
 //=require home
 //= require navbar
+//= require events
 //= require_tree .
-
-$(document).ready(function(){
-  
-});
