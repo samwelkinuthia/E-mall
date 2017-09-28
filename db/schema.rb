@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170927110211) do
+ActiveRecord::Schema.define(version: 20170914130656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,14 +52,6 @@ ActiveRecord::Schema.define(version: 20170927110211) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["mall_id"], name: "index_features_on_mall_id"
-  end
-
-  create_table "locations", force: :cascade do |t|
-    t.string "name"
-    t.float "latitude"
-    t.float "longitude"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "mall_attachments", force: :cascade do |t|
@@ -104,8 +96,8 @@ ActiveRecord::Schema.define(version: 20170927110211) do
     t.float "area", default: 300.0
     t.string "wing", default: "Wing"
     t.integer "floor", default: 1
-    t.time "opening_time", default: "2000-01-01 11:00:00"
-    t.time "closing_time", default: "2000-01-01 11:00:00"
+    t.time "opening_time", default: "2000-01-01 06:26:43"
+    t.time "closing_time", default: "2000-01-01 06:26:43"
     t.bigint "phone", default: 0
     t.string "email", default: "room@gmail.com"
     t.string "facebook", default: "facebook.com"
