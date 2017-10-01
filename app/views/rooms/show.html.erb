@@ -1,12 +1,44 @@
-<div class="row room_header">
+<%if @room.occupied == false%>
+<div class="well top">
+  <p>Floor Area:<%=@room.area%>
+    by
+    <%=@room.area%>
+    meters.</p>
+  <p>Wing:<%=@room.wing%></p>
+  <p>Floor:<%=@room.floor%></p>
+  <p>Rent:<%=@room.rent%></p>
+  <div class="inquiries">
+    <p>For inquiries and booking:</p>
+    <i class="fa fa-phone" aria-hidden="true"></i>
+    <%=@mall.phone_no%>
+    <br>
+    <i class="fa fa-envelope" aria-hidden="true"></i>
+    <%=@mall.email%>
+  </div>
+  <%= link_to edit_mall_room_path(@mall,@room) do%>
+  <%if current_user && current_user.admin?%>
+  <button class="occupy">Occupy</button>
+  <%else%>
+  <button class="occupy">Update Space</button>
+  <%end%>
+  <%end%>
+</div>
+<%else%>
+
+<div class="row room_header" style="background: linear-gradient( rgba(14, 41, 69, 0.9), rgba(0, 0, 0, 0.4)), url(<%=@room.storeavatar_url.to_s%>)">
   <h1>Welcome to
     <span><%=@room.name%></span>
   </h1>
+  <%if @room.storeimage.present?%>
   <%= image_tag @room.storeimage_url.to_s, class: "room_image img-responsive"%>
+  <%end%>
+
   <div class="row room_description">
     <p><%= @room.description %></p>
   </div>
+
 </div>
+<!-- ROOM LOOP -->
 <div class="container-fluid room">
   <div class="container">
     <div class="row room_products">
@@ -37,7 +69,9 @@
       <h3><%=@room.closing_time.strftime('%H:%M:%p')%></h3>
     </div>
     <div class="col-md-6 col-xs-12">
+      <%if @room.storeavatar.present?%>
       <%=image_tag @room.storeavatar_url, class: "img-responsive animated swing"%>
+      <%end%>
     </div>
   </div>
 
@@ -73,7 +107,7 @@
       <br>
       <br>
       <p>You can add products manually as well</p>
-      <%=render 'products/form'%>
+      <%#=render 'products/form'%>
     </div>
     <%end%>
   </div>
@@ -103,6 +137,7 @@
   </div>
 </div>
 <!-- <br>
-<%= link_to 'Edit', edit_mall_room_path(@room) %>
-|
-<%= link_to 'Back', mall_path %> -->
+    <%= link_to 'Edit', edit_mall_room_path(@room) %>
+    |
+    <%= link_to 'Back', mall_path %> -->
+<%end%>

@@ -1,8 +1,16 @@
 .header_show {
   padding: 100px;
   color: white;
-  width: 100%;
   text-align: center;
+  h1{
+    font-size:70px;
+    color:white;
+    font-weight: bolder;
+  }
+  p{
+    font-size:20px;
+    font-weight: bolder;
+  }
 }
 
 #map {
@@ -21,6 +29,7 @@
   padding: 10px;
 
   .mall_attachment {
+    box-shadow: 8px 8px 10px #aaa;
     height: 400px;
     width: 100%;
     border: 0 solid red;
@@ -32,19 +41,21 @@
   text-align: center;
   padding: 10px;
   margin: 20px;
-
-  .mall_room {
-    .store_image {
-      width: 100%;
-    }
-
-    .mall_room_name {
-      border: 2px solid #f2f2f2;
-      padding: 3px;
-    }
-
-    button {
-      margin: 4px;
+  .mall_room{
+    padding:20px;
+    .room_tile{
+      border:2px solid #b3b3b3;
+      .vacant{
+        color:red;
+      }
+      #vacant{
+        background-color:red;
+        color:white;
+      }
+      .store_image {
+        height: 250px;
+        width: 100%;
+      }
     }
   }
 }

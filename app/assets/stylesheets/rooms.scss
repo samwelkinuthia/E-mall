@@ -1,8 +1,34 @@
+.top{
+  margin-top:2%;
+  padding: 30px;
+  p{
+    font-size:30px;
+    font-family: 'Inconsolata', sans-serif;
+  }
+  font-weight: bold;
+  text-align: left;
+  .inquiries{
+    font-weight: bold;
+    font-size:20px;
+    text-align: left;
+  }
+  .occupy{
+    font-size:20px;
+    margin:10px;
+    padding:15px;
+    color:white;
+    border-radius:5px;
+    background-color:#00b300;
+    border:0px solid red;
+  }
+  .occupy:hover{
+     background-color:#008000;
+     color:white;
+  }
+}
 .room_header {
   color: white;
   text-align: center;
-  background-image: url('https://i.pinimg.com/originals/63/de/7f/63de7feb0bf3814e6b6626fa834e2dfb.jpg');
-
   .room_image {
     border-radius: 50%;
     margin: auto;
@@ -27,10 +53,10 @@
 
   .room_products {
     text-align: center;
-    border:2px solid black;
+    border:2px solid #f2f2f2;
 
     h1 {
-      background-color: black;
+      background-color: #0E2945;
       color: white;
       padding:15px;
     }
@@ -66,7 +92,7 @@
     font-size: 50px;
 
     h1 {
-      background-color: black;
+      background-color: #0E2945;
       color: white;
       padding: 20px;
     }
@@ -83,7 +109,7 @@
   }
 
   .room_directions {
-    background-color: black;
+    background-color: #0E2945;
     color: white;
     padding: 50px;
     text-align: center;
@@ -91,7 +117,7 @@
   }
 
   .room_contacts {
-    background-color:black;
+    background-color:#0E2945;
     color:white;
     margin-bottom: 0;
     text-align: center;

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Candal|Monoton|NTR|Zilla+Slab+Highlight');
 .mall_index_top {
   text-align: center;
   background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('mall.jpg')no-repeat center center fixed;
@@ -7,7 +8,6 @@
   background-size: cover;
   -webkit-filter: contrast(90%);
   padding: 70px;
-
   p {
     color: white;
     font-size: 20px;
@@ -35,111 +35,81 @@
   }
 }
 
-#mall_image {
-  border: 0 solid red;
-  border-radius: 5px;
-  height: 400px;
-  width: 100%;
+//malls loop
+
+.main {
+  margin: 30px;
 }
 
-.mall_image {
-  position: relative;
-}
-
-.mall_image:after,
-.mall_image:before {
-  z-index: -1;
-  position: absolute;
-  content: "";
-  bottom: 25px;
-  left: 10px;
-  width: 50%;
-  top: 80%;
-  max-width: 300px;
-  background: #777;
-  -webkit-box-shadow: 0 35px 20px #777;
-  -moz-box-shadow: 0 35px 20px #777;
-  box-shadow: 0 35px 20px #777;
-  -webkit-transform: rotate(-8deg);
-  -moz-transform: rotate(-8deg);
-  -o-transform: rotate(-8deg);
-  -ms-transform: rotate(-8deg);
-  transform: rotate(-8deg);
-}
-
-.mall_image:after {
-  -webkit-transform: rotate(8deg);
-  -moz-transform: rotate(8deg);
-  -o-transform: rotate(8deg);
-  -ms-transform: rotate(8deg);
-  transform: rotate(8deg);
-  right: 10px;
-  left: auto;
-}
-
-.malls_loop {
-  margin: 10px;
-  background-image: url("http://www.designbolts.com/wp-content/uploads/2012/12/White-Gradient-Squares-Seamless-Patterns-For-Website-Backgrounds.jpg");
-  padding: 50px;
-
-  .left {
-    text-align: center;
-    padding: 20px;
-    font-size: 20px;
-  }
-
-  .right {
-    text-align: left;
-    padding: 20px;
-    font-size: 20px;
-    text-align: center;
-
-    .view_btn {
-      border: 2px solid black;
-      padding: 10px;
-      border-radius: 5px;
-      text-align: center;
-      text-decoration: none;
-      color: #ff571a;
-    }
-  }
-}
-
-.mall-details {
-  font-family: 'Fira Sans', sans-serif;
-}
-
-.mall_map {
+.details {
+  color: white;
+  height: 350px;
+  padding: 20px;
   text-align: center;
-  background-color: #f2f2f2;
+  background-color: rgba(14, 41, 69, 0.9);
+}
+
+.view {
+  text-align: center;
+  height: 350px;
+  background-repeat: no-repeat;
+}
+
+.view .mall {
+  margin-top: 70px;
+  padding: 30px;
+  color: white;
+  background-color: #0E2945;
+  border-radius: 5px;
+  font-family: 'NTR', sans-serif;
+  border: 0px solid grey;
+  font-size: 30px;
+}
+
+.view .mall:hover {
+  background-color: #0d253f;
+  color: white;
+}
+
+.time {
+  color: #00b300;
+  font-size: 20px;
+}
+
+.details h1 {
+  font-family: 'Zilla Slab Highlight', sans-serif;
+  font-size: 50px;
+}
+
+.details h3 {
+  font-family: 'NTR', sans-serif;
+}
+.details h3 a{
+  color:white;
+}
+
+.details p {
+  font-family: 'NTR', sans-serif;
+}
+
+.page-header{
+  text-align: center;
+}
+
+
+.mall_map{
+  text-align: center;
+  p{
+    text-align: center;
+    padding:20px;
+    font-size:30px;
+  }
+}
+
+
+#map {
+  height: 80vh;
+  width: 100%;
   margin: 0;
   padding: 0;
-  width: 100%;
-
-  h1 {
-    font-family: 'Roboto', sans-serif;
-    font-family: 30px;
-  }
-
-  p {
-    font-family: 'Raleway', sans-serif;
-    font-size: 17px;
-  }
-
-  #map {
-    height: 100vh;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-}
-
-#status_btn {
-  width: 50%;
-  font-size: 16px;
-}
-
-.store_image {
-  height: 300px;
-  width: 400px;
 }

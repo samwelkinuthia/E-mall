@@ -31,16 +31,6 @@
 </div>
 
 <div class="field">
-  <%= form.label :area %>
-  <%= form.text_field :area, id: :room_area %>
-</div>
-
-<div class="field">
-  <%= form.label :wing %>
-  <%= form.text_field :wing, id: :room_wing %>
-</div>
-
-<div class="field">
   <%= form.label :floor %>
   <%= form.number_field :floor, id: :room_floor %>
 </div>
@@ -49,6 +39,22 @@
   <%= form.label :opening_time %>
   <%= form.time_select :opening_time, id: :room_opening_time %>
 </div>
+
+<%if current_user && current_user.admin?%>
+<div class="field">
+  <%= form.label :area %>
+  <%= form.text_field :area, id: :room_area %>
+</div>
+
+<div class="field">
+  <%= form.label :wing %>
+  <%= form.text_field :wing, id: :room_wing %>
+</div>
+<div class="field">
+  <%=form.label :rent%>
+  <%=form.text_field :rent%>
+</div>
+<%end%>
 
 <div class="field">
   <%= form.label :closing_time %>

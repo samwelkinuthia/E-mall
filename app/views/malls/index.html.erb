@@ -1,7 +1,13 @@
+<script src="//maps.google.com/maps/api/js?key=AIzaSyDoCKNEr65ZO2JvpuIbofP7cn8p3pqFJP4"></script>
+<script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
+
 <div class="row mall_index_top">
   <div class="malls_title">
-    <h1 class="animated bounceInDown">MALLS</h1>
-    <p><b>Here, you can view all malls as well as search malls via location.</b></p>
+    <%=link_to "api", api_v1_malls_path(@mall)%>
+    <h1>MALLS</h1>
+    <p>
+      <b>Here, you can view all malls as well as search malls via location.</b>
+    </p>
   </div>
   <br>
   <div class="search">
@@ -11,70 +17,55 @@
     <%end%>
   </div>
 </div>
+
 <!--MALLS LIST-->
+<div class="page-header">
+  <h1>ALL MALLS</h1>
+</div>
 <% @malls.each do |mall| %>
-<div class="row malls_loop">
-  <!--MALL IMAGE-->
-  <div class="col-md-7 col-xs-12 left animated fadeInLeft mall_image">
-    <%= image_tag mall.mallpicture_url.to_s, class: "img-responsive", id: "mall_image"%>
-  </div>
-
-  <!--MALL DETAILS-->
-  <div class="col-md-5 col-xs-12 right animated fadeInRight mall-details">
+<div class="row main">
+  <div class="col-md-6 col-xs-12 details">
     <h1><%=mall.name%></h1>
-    <%if ((mall.opening_time).strftime('%H:%M')..(mall.closing_time).strftime('%H:%M')).include?Time.now.strftime('%H:%M')%>
-    <div>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Green_pog.svg/1024px-Green_pog.svg.png" class="img-responsive" style="height:30px; width:30px;margin: auto;">&nbsp;OPEN
-    </div>
-    <br>
-    <%=link_to mall_events_path(mall) do%>
-    <i class="fa fa-calendar" aria-hidden="true">&nbsp;Events:
-    </i><%=mall.events.count%>
-    <br>
-    <%end%>
-    <%else%>
-    <div>
-      <img src="http://designingflicks.com/images/red-svg-9.png" class="img-responsive" style="height:30px; width:30px; margin:auto;">&nbsp;Closed
-    </div>
-    <%end%>
-
+    <h3 class="animated infinite headShake">
+      <i class="fa fa-calendar" aria-hidden="true"></i><%=link_to mall_events_path(mall) do%><%=mall.events.count%> events happening here.<%end%></h3>
     <%if mall.parking_space == true%>
+    <h3>
+      <i class="fa fa-car" aria-hidden="true"></i>Parking available.</h3>
+    <%else%>
+    <h3>
+      <i class="fa fa-car" aria-hidden="true"></i>Parking available.</h3>
+    <%end%>
+    <h3>
+      <i class="fa fa-home" aria-hidden="true"></i><%=mall.rooms.count%>
+      stores present.</h3>
+    <%if ((mall.opening_time).strftime('%H:%M')..(mall.closing_time).strftime('%H:%M')).include?Time.now.strftime('%H:%M')%>
     <p>
-      <i class="fa fa-car" aria-hidden="true"></i>
-      Available Parking
+      <span class="time">
+        <i class="fa fa-clock-o" aria-hidden="true"></i>Currently Open</span>
     </p>
     <%else%>
     <p>
-      <i class="fa fa-car" aria-hidden="true"></i>
-      No Parking Provided</p>
+      <span class="time">
+        <i class="fa fa-clock-o" aria-hidden="true"></i>Currently Open</span>
+    </p>
     <%end%>
-
-    <%if mall.rooms_status == true%>
-    <i class="fa fa-home" aria-hidden="true"></i>
-    <%=mall.rooms.count%> Stores present
-    <%else%>
+    <%if mall.rooms_status == false%>
     <h3>Fully occupied</h3>
     <%end%>
-    <br>
-    <br>
+  </div>
+  <div class="col-md-6 col-xs-12 view" style="background-image:url(<%=mall.mallpicture_url.to_s%>);">
     <%=link_to mall_path(mall) do%>
-    <button class="btn btn-primary" style="padding: 15px 40px; background-color: #0E2945">
-      <h4>View Mall</h4>
-    </button>
+    <button class="btn btn-default mall animated infinite pulse">Take me there!</button>
     <%end%>
   </div>
 </div>
-<% end %>
-<br>
+<%end%>
 
 <div class="mall_map">
-  <h1>AVAILABLE MALLS</h1>
-  <p>You can view all malls on the map</p>
+  <p>Mall distrbution.</p>
   <div id="map"></div>
 </div>
 
-<script src="//maps.google.com/maps/api/js?key=AIzaSyDoCKNEr65ZO2JvpuIbofP7cn8p3pqFJP4"></script>
-<script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
 
 <script type="text/javascript">
   $(document).ready(function () {
