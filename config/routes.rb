@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'apis/index'
-
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
 
   root "home#index"
-
+  get 'apis/index'
   get "/pages/:page" => "pages#show"
   match '/contacts',     to: 'contacts#new',             via: 'get'
 
